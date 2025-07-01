@@ -7,19 +7,32 @@ Features:
 - Plan completion tracking by manager and product tracking
 - SVG icons showing client company sector
 - Time to close a deals bar chart
-
-<img align="center" src="images/page_01.png" height="250">
-<img align="center" src="images/page_02.png" height="250">
-<img align="center" src="images/page_03.png" height="250">
-<img align="center" src="images/page_04.png" height="250">
-<img align="center" src="images/page_05.png" height="250">
+<p align="center">
+  <img align="center" src="images/page_01.png" height="250">
+</p>
+<p align="center">
+  <img align="center" src="images/page_02.png" height="250">
+</p>
+<p align="center">
+  <img align="center" src="images/page_03.png" height="250">
+</p>
+<p align="center">
+  <img align="center" src="images/page_04.png" height="250">
+</p>
+<p align="center">
+  <img align="center" src="images/page_05.png" height="250">
+</p>
 
 # Report internal structure
-<img align="center" src="images/schema.png" height="250">
+<p align="center">
+  <img align="center" src="images/schema.png" height="250">
+</p>
 
 Data modelled under star schema, tables are connected by primary keys id.
 
-<img align="center" src="images/measures_table.png" height="250">
+<p align="center">
+  <img align="center" src="images/measures_table.png" height="250">
+</p>
 
 All measures are put in Measures table and provided descriptive names
 
