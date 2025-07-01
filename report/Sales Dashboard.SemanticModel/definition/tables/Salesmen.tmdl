@@ -1,0 +1,62 @@
+table Salesmen
+	lineageTag: e21a1142-454f-498a-bd87-82f5b9531619
+
+	column Salesman
+		dataType: string
+		lineageTag: 4ad53517-4f35-4819-971a-ec79190f0d33
+		summarizeBy: none
+		sourceColumn: Salesman
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manager
+		dataType: string
+		isHidden
+		lineageTag: 3bcdfa56-5626-46b0-b84d-d3ed3db63eb0
+		summarizeBy: none
+		sourceColumn: Manager
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 650523fe-0379-44c6-a03b-0c3e382e5bc7
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column manager_id
+		dataType: string
+		lineageTag: 7ddfc428-3f46-4e05-9b4b-3526fb184243
+		summarizeBy: none
+		sourceColumn: manager_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column id
+		dataType: string
+		lineageTag: 6df0cc73-beec-4acb-847e-fcb311db26ea
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Salesmen = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("\\Mac\Home\Documents\Проекты\Личное\Portfolio Sales Dashboard\data\sales_teams.csv"),[Delimiter=",", Columns=3, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Renamed Columns" = Table.RenameColumns(#"Promoted Headers",{{"sales_agent", "Salesman"}, {"manager", "Manager"}, {"regional_office", "Region"}}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Renamed Columns", "Salesman", "id"),
+				    #"Duplicated Column1" = Table.DuplicateColumn(#"Duplicated Column", "Manager", "manager_id")
+				in
+				    #"Duplicated Column1"
+
+	annotation PBI_NavigationStepName = Навигация
+
+	annotation PBI_ResultType = Table
+

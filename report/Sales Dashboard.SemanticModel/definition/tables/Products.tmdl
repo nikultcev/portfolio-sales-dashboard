@@ -1,0 +1,52 @@
+table Products
+	lineageTag: 9fdeb4d1-5e7e-4632-a0ff-6426869298e6
+
+	column Product
+		dataType: string
+		lineageTag: 77890980-a028-4c7c-8d3a-c22f0d2614d1
+		summarizeBy: none
+		sourceColumn: Product
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product line'
+		dataType: string
+		lineageTag: cf40b43c-0c6c-4f05-a0a6-115f0a2d9cc5
+		summarizeBy: none
+		sourceColumn: Product line
+
+		annotation SummarizationSetBy = Automatic
+
+	column Price
+		dataType: int64
+		formatString: #,0
+		lineageTag: 8b5184f2-3e1d-401c-b0d6-b821b3440f6a
+		summarizeBy: sum
+		sourceColumn: Price
+
+		annotation SummarizationSetBy = Automatic
+
+	column id
+		dataType: string
+		lineageTag: 384f6cf5-d991-4fa4-b90b-7e383fd182e9
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Products = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("\\Mac\Home\Documents\Проекты\Личное\Portfolio Sales Dashboard\data\products.csv"),[Delimiter=",", Columns=3, Encoding=1251, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Renamed Columns" = Table.RenameColumns(#"Promoted Headers",{{"product", "Product"}, {"series", "Product line"}, {"sales_price", "Price"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Price", Int64.Type}}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Changed Type", "Product", "id")
+				in
+				    #"Duplicated Column"
+
+	annotation PBI_NavigationStepName = Навигация
+
+	annotation PBI_ResultType = Table
+

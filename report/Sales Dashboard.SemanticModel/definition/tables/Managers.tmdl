@@ -1,0 +1,36 @@
+table Managers
+	lineageTag: 3624a169-d277-4ea9-805e-e0c8131d1b30
+
+	column Manager
+		dataType: string
+		lineageTag: 7f52bd6c-e78f-43eb-856e-95ef52cfd5bb
+		summarizeBy: none
+		sourceColumn: Manager
+
+		annotation SummarizationSetBy = Automatic
+
+	column id
+		dataType: string
+		lineageTag: 317fa1a9-14a4-41ed-9d8e-155cd826c900
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Managers = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("\\Mac\Home\Documents\Проекты\Личное\Portfolio Sales Dashboard\data\sales_teams.csv"),[Delimiter=",", Columns=3, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Promoted Headers",{"manager"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"manager", "Manager"}}),
+				    #"Removed Duplicates" = Table.Distinct(#"Renamed Columns"),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Removed Duplicates", "Manager", "id")
+				in
+				    #"Duplicated Column"
+
+	annotation PBI_NavigationStepName = Навигация
+
+	annotation PBI_ResultType = Table
+

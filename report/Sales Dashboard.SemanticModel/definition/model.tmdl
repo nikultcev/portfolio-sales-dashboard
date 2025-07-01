@@ -1,0 +1,29 @@
+model Model
+	culture: ru-RU
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: ru-RU
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Clients","Products","Deals","Salesmen","Managers","Managers Plans","Measure","Product Sales Plans"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.144.679.0 (25.06)+ef40146207b86a826d1c72a7727a743ee37450e9
+
+annotation PBI_ProTooling = ["DevMode","CalcGroup","TMDLView_Desktop"]
+
+ref table Clients
+ref table Products
+ref table Deals
+ref table Salesmen
+ref table Calendar
+ref table Measure
+ref table 'Managers Plans'
+ref table Managers
+ref table 'Product Sales Plans'
+
+ref cultureInfo ru-RU
+

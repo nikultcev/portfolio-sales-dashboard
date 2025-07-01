@@ -1,0 +1,132 @@
+table Calendar
+	lineageTag: dac98148-4fc0-463b-89e6-6b62b2ccee07
+	dataCategory: Time
+
+	measure 'Текущий период' =
+			
+			VAR _Title =
+			    IF(
+			        ISFILTERED('Calendar'[Month]),
+			            MIN('Calendar'[Month])&" "&MAX('Calendar'[Year]),
+			            IF(
+			                ISFILTERED('Calendar'[Quarter]),
+			                    MAX('Calendar'[Quarter])&" "&MAX('Calendar'[Year]),
+			                    IF(
+			                        ISFILTERED('Calendar'[Year]),
+			                            MAX('Calendar'[Year]))))
+			RETURN
+			CONVERT(_Title,STRING)
+		lineageTag: d5045fb9-8a3b-4885-95ed-14fbc227e2c1
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	column Date
+		formatString: General Date
+		lineageTag: 07f73c72-8841-4890-8d38-fa73a2fe5058
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		formatString: 0
+		lineageTag: 365a88b0-c10b-4dee-93f0-11fd3d456817
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		lineageTag: 41857da9-419f-4af5-974f-52ab0ea6fb98
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		formatString: 0
+		lineageTag: dc3e670e-ef5c-4b29-9c87-5caeadbdb181
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Month Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		formatString: 0
+		lineageTag: 397d792c-c12c-4aff-81c9-fe12bdddc6a2
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Day]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		lineageTag: 55a66147-8802-4977-b4d7-6cfa857b4ef4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+		sortByColumn: 'Month Number'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year-Month
+		lineageTag: a80a083f-49ce-45c8-96f8-f5ce511945a9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year-Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Date Hierarchy'
+		lineageTag: 46861295-6ad0-4015-aee4-d16fb2f46cbc
+
+		level Year
+			lineageTag: fe804721-7dbc-4e02-97d4-1a9135822b54
+			column: Year
+
+		level Quarter
+			lineageTag: f7e4d098-ab82-469c-9f3f-5df184b06810
+			column: Quarter
+
+		level Month
+			lineageTag: 68e12345-aa4b-4c4e-b37c-7331f77fefc9
+			column: Month
+
+		level Day
+			lineageTag: fa3ea0fe-d7d0-40d0-b305-152d722af990
+			column: Day
+
+	partition Calendar = calculated
+		mode: import
+		source = ```
+				
+				    SELECTCOLUMNS(
+				        CALENDAR(MIN('Deals'[Date start]),MAX('Deals'[Date finish])),
+				        "Date",[Date],
+				        "Year",YEAR([Date]),
+				        "Quarter","Q"&QUARTER([Date]),
+				        "Month Number",MONTH([Date]),
+				        "Year-Month",YEAR([Date])&"-"&MONTH([Date]),
+				        "Day",DAY([Date]),
+				        "Month",
+				            SWITCH(MONTH([Date]),
+				            1,"January",
+				            2,"February",
+				            3,"March",
+				            4,"April",
+				            5,"May",
+				            6,"June",
+				            7,"July",
+				            8,"August",
+				            9,"September",
+				            10,"October",
+				            11,"Novermber",
+				            12,"December","No month"))
+				```
+
+	annotation PBI_Id = 34794dc395544b6ca6bc1c9253446fc3
+

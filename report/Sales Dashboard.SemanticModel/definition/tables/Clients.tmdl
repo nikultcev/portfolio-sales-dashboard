@@ -1,0 +1,156 @@
+table Clients
+	lineageTag: 58d122a2-c954-4a42-a9ee-2a0aa8b8b994
+
+	column Client
+		dataType: string
+		lineageTag: 770932db-d2cc-4947-adee-addfb97b077a
+		summarizeBy: none
+		sourceColumn: Client
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sector
+		dataType: string
+		lineageTag: 3a146741-1704-4f2b-b0bc-978818a0e99f
+		summarizeBy: none
+		sourceColumn: Sector
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year established'
+		dataType: int64
+		formatString: 0
+		lineageTag: 169d72ed-3283-4b6e-9601-d24a6190528f
+		summarizeBy: none
+		sourceColumn: Year established
+
+		annotation SummarizationSetBy = Automatic
+
+	column Revenue
+		dataType: double
+		lineageTag: d108ca4f-cf16-46e2-b7d7-84b066d073c1
+		summarizeBy: none
+		sourceColumn: Revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Number of employees'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e188ac7-709d-4078-8a4b-1043dfc81283
+		summarizeBy: none
+		sourceColumn: Number of employees
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 86f21e0c-f338-4c8a-adc7-242095413038
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent company'
+		dataType: string
+		lineageTag: 8f60043f-0485-4435-be91-255f18d5269d
+		summarizeBy: none
+		sourceColumn: Parent company
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Revenue bin' =
+			
+			SWITCH(
+			    TRUE(),
+			    Clients[Revenue]<1000,"<1000",
+			    Clients[Revenue]>=1000&&Clients[Revenue]<=2000,"1000-2000",
+			    Clients[Revenue]>2000&&Clients[Revenue]<=4000,"2000-4000",
+			    Clients[Revenue]>4000,">4000")
+		lineageTag: 9648da8a-8368-4cc7-96e8-093f6cfc17a7
+		summarizeBy: none
+		sortByColumn: 'Revenue bin sorting'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Revenue bin sorting' =
+			
+			SWITCH(
+			    TRUE(),
+			    Clients[Revenue]<1000,1,
+			    Clients[Revenue]>=1000&&Clients[Revenue]<=2000,2,
+			    Clients[Revenue]>2000&&Clients[Revenue]<=4000,3,
+			    Clients[Revenue]>4000,4)
+		formatString: 0
+		lineageTag: e089e073-6e08-4ebb-ba27-a7ff82f61a0f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Number of employees bin' =
+			
+			SWITCH(
+			    TRUE(),
+			    Clients[Number of employees]<100,"<100",
+			    Clients[Number of employees]>=100&&Clients[Number of employees]<=500,"100-500",
+			    Clients[Number of employees]>500&&Clients[Number of employees]<=1000,"500-1000",
+			    Clients[Number of employees]>1000&&Clients[Number of employees]<=2500,"1000-2500",
+			    Clients[Number of employees]>2500&&Clients[Number of employees]<=5000,"2500-5000",
+			    Clients[Number of employees]>5000,">5000"
+			)
+		lineageTag: 6b60cc7a-01c2-4652-a911-47d469a8d46f
+		summarizeBy: none
+		sortByColumn: 'Number of employees bin sorting'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Number of employees bin sorting' =
+			
+			SWITCH(
+			    TRUE(),
+			    Clients[Number of employees]<100,1,
+			    Clients[Number of employees]>=100&&Clients[Number of employees]<=500,2,
+			    Clients[Number of employees]>500&&Clients[Number of employees]<=1000,3,
+			    Clients[Number of employees]>1000&&Clients[Number of employees]<=2500,4,
+			    Clients[Number of employees]>2500&&Clients[Number of employees]<=5000,5,
+			    Clients[Number of employees]>5000,6
+			)
+		formatString: 0
+		lineageTag: e0d6ebfe-f24a-4517-b2af-f2dda489bb80
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column id
+		dataType: string
+		lineageTag: 097e7c36-c53c-4c65-ba25-bfd0e5587bf1
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Clients = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("\\Mac\Home\Documents\Проекты\Личное\Portfolio Sales Dashboard\data\accounts.csv"),[Delimiter=",", Columns=7, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Renamed Columns" = Table.RenameColumns(#"Promoted Headers",{{"account", "Client"}, {"sector", "Sector"}, {"year_established", "Year established"}, {"revenue", "Revenue"}, {"employees", "Number of employees"}, {"subsidiary_of", "Parent company"}, {"office_location", "Country"}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns",".",",",Replacer.ReplaceText,{"Revenue"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Replaced Value",{{"Revenue", type number}, {"Number of employees", Int64.Type}, {"Year established", Int64.Type}}),
+				    #"Capitalized Each Word" = Table.TransformColumns(#"Changed Type",{{"Sector", Text.Proper, type text}}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Capitalized Each Word","",null,Replacer.ReplaceValue,{"Parent company"}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Replaced Value1", "Client", "id")
+				in
+				    #"Duplicated Column"
+
+	annotation PBI_NavigationStepName = Навигация
+
+	annotation PBI_ResultType = Table
+

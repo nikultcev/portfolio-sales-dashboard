@@ -1,0 +1,52 @@
+table 'Managers Plans'
+	lineageTag: eca820a0-cfc3-46fa-82e9-9266461538f3
+
+	column manager_id
+		dataType: string
+		isHidden
+		lineageTag: 9d8fde17-119e-4814-9030-52a3717a1a9b
+		summarizeBy: none
+		sourceColumn: manager_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Plan
+		dataType: double
+		lineageTag: b4d05bf3-7f55-43db-84d5-092df3e27f4e
+		summarizeBy: sum
+		sourceColumn: Plan
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Year-Month
+		dataType: string
+		lineageTag: 9f44617b-54c2-43ef-bf8a-7b842aa1049a
+		summarizeBy: none
+		sourceColumn: Year-Month
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Managers Plans' = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Mac\Home\Documents\Проекты\Личное\Portfolio Sales Dashboard\data\sale_plans.csv"),[Delimiter=",", Columns=6, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Added Custom" = Table.AddColumn(#"Promoted Headers", "Year-Month", each [year]&"-"&[month_num]),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Added Custom",{"manager_id", "plan", "Year-Month"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"plan", "Plan"}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns",".",",",Replacer.ReplaceText,{"Plan"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Replaced Value",{{"Plan", type number}})
+				in
+				    #"Changed Type"
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Навигация
+
+	annotation PBI_ResultType = Table
+

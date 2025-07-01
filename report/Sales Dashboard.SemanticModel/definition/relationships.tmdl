@@ -1,0 +1,38 @@
+relationship c5d2593f-fedc-9153-f852-c084c2480756
+	fromColumn: Deals.'Date start'
+	toColumn: Calendar.Date
+
+relationship de681b40-b203-58cb-cfab-520e4a534cdf
+	fromColumn: Salesmen.Manager
+	toColumn: Managers.Manager
+
+relationship ede65055-30a2-d985-2804-dd9ee3505332
+	fromColumn: 'Managers Plans'.manager_id
+	toColumn: Managers.Manager
+
+relationship bc904d0c-a4bd-2a73-e6fe-da65b492f4e7
+	fromColumn: Deals.product_id
+	toColumn: Products.id
+
+relationship 936709da-01ba-8c8a-301c-ec3269b0ec6a
+	fromColumn: Deals.client_id
+	toColumn: Clients.id
+
+relationship 548d8d54-ca05-82f3-345a-929819e1db08
+	fromColumn: Deals.salesman_id
+	toColumn: Salesmen.id
+
+relationship 1b03d7bb-6b93-b2c4-90b5-daf6e52e141e
+	toCardinality: many
+	fromColumn: 'Managers Plans'.Year-Month
+	toColumn: Calendar.Year-Month
+
+relationship 984b4a81-c08f-6305-045b-ae361ccb4513
+	toCardinality: many
+	fromColumn: 'Product Sales Plans'.Year-Month
+	toColumn: Calendar.Year-Month
+
+relationship 9e6b0a47-b5a5-41ed-7ec5-6d65006d2fb4
+	fromColumn: 'Product Sales Plans'.product_id
+	toColumn: Products.id
+

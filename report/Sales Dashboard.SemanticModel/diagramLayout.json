@@ -1,0 +1,137 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 511.0642197861257,
+            "y": 564.66913773394981
+          },
+          "nodeIndex": "Calendar",
+          "nodeLineageTag": "dac98148-4fc0-463b-89e6-6b62b2ccee07",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Clients",
+          "nodeLineageTag": "58d122a2-c954-4a42-a9ee-2a0aa8b8b994",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 965.91641567792055,
+            "y": 434.98216245947845
+          },
+          "nodeIndex": "Products",
+          "nodeLineageTag": "9fdeb4d1-5e7e-4632-a0ff-6426869298e6",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 297.20156119318528,
+            "y": 105.5
+          },
+          "nodeIndex": "Deals",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 791.0917799463133,
+            "y": 0
+          },
+          "nodeIndex": "Measure",
+          "nodeLineageTag": "9dd36037-426c-459b-a121-aff004244120",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 961.8183322647983,
+            "y": 687.232092287578
+          },
+          "nodeIndex": "Product Sales Plans",
+          "nodeLineageTag": "8498875d-152c-4573-b64e-c5d3a4d71312",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 298.64041281975381
+          },
+          "nodeIndex": "Salesmen",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 638.519585583133
+          },
+          "nodeIndex": "Managers",
+          "nodeLineageTag": "3624a169-d277-4ea9-805e-e0c8131d1b30",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 876.783295491326
+          },
+          "nodeIndex": "Managers Plans",
+          "nodeLineageTag": "eca820a0-cfc3-46fa-82e9-9266461538f3",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Все таблицы",
+      "zoomValue": 50.346892102823027,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Все таблицы",
+  "defaultDiagram": "Все таблицы"
+}

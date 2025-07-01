@@ -1,0 +1,210 @@
+table Deals
+	lineageTag: bf999480-ff9d-4250-962e-bfdf0fb45d22
+
+	column id
+		dataType: string
+		lineageTag: 1bfc3293-ea76-41bc-a8c6-93adaaaf1ef2
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column salesman_id
+		dataType: string
+		isHidden
+		lineageTag: 5d325e2e-b6bb-42fe-bc69-00baf79eb5d5
+		summarizeBy: none
+		sourceColumn: salesman_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: string
+		isHidden
+		lineageTag: 59026f98-c7d1-455f-bf9b-c8ac7e99ee2e
+		summarizeBy: none
+		sourceColumn: product_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_id
+		dataType: string
+		isHidden
+		lineageTag: 1e1eb4ed-d6d4-4d1b-807e-fe5bc271fd87
+		summarizeBy: none
+		sourceColumn: client_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Stage
+		dataType: string
+		lineageTag: 4db0f085-b1c7-4b18-9004-ac3b2cb17f6d
+		summarizeBy: none
+		sourceColumn: Stage
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date start'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 60c34ada-7af8-490d-9973-26234d9044be
+		summarizeBy: none
+		sourceColumn: Date start
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Date finish'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ebecba47-915c-48c4-8fc1-1d0461c1269d
+		summarizeBy: none
+		sourceColumn: Date finish
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Sum
+		dataType: double
+		lineageTag: d5bd8afe-d865-4824-a358-7489fae842db
+		summarizeBy: sum
+		sourceColumn: Sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Stage number' = ```
+			
+			    SWITCH(
+			        'Deals'[Stage],
+			        "Prospecting",1,
+			        "Engaging",2,
+			        "Won",3,
+			        "Lost",4)
+			```
+		formatString: 0
+		lineageTag: 8f6f3bdd-c963-43e6-806c-cb11dda71f59
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Time to sale' = ```
+			
+			    IF(
+			        'Deals'[Stage]="Won",
+			            DATEDIFF('Deals'[Date start],'Deals'[Date finish],DAY),
+			            BLANK()
+			    )
+			```
+		formatString: 0
+		lineageTag: 2e16de34-97e4-42c4-a589-f97e0a26ea66
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Time to sale bin' = ```
+			
+			    SWITCH(
+			        TRUE(),
+			        Deals[Time to sale]>0&&Deals[Time to sale]<=5,"<5",
+			        Deals[Time to sale]>5&&Deals[Time to sale]<=10,"5-10",
+			        Deals[Time to sale]>10&&Deals[Time to sale]<=50,"10-50",
+			        Deals[Time to sale]>50&&Deals[Time to sale]<=100,"50-100",
+			        Deals[Time to sale]>100,">100")
+			```
+		lineageTag: 8119743b-4af2-4ca5-b3f3-52e7d544665a
+		summarizeBy: none
+		sortByColumn: 'Time to sale bin sorting'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Time to sale bin sorting' = ```
+			
+			    SWITCH(
+			        TRUE(),
+			        Deals[Time to sale]>0&&Deals[Time to sale]<=5,1,
+			        Deals[Time to sale]>5&&Deals[Time to sale]<=10,2,
+			        Deals[Time to sale]>10&&Deals[Time to sale]<=50,3,
+			        Deals[Time to sale]>50&&Deals[Time to sale]<=100,4,
+			        Deals[Time to sale]>100,5)
+			```
+		formatString: 0
+		lineageTag: e089b71d-e22d-4e70-8829-d02d17a4acf2
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Days engaging' =
+			
+			IF(
+			    Deals[Stage]="Engaging",
+			        DATEDIFF([Date start],DATE(2017,12,28),DAY),
+			        BLANK()
+			)
+		formatString: 0
+		lineageTag: 4bc8b666-3c61-436f-b8b0-8f280a9f2b0c
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Days engaging bin' = ```
+			
+			    SWITCH(
+			        TRUE(),
+			        Deals[Days engaging]>0&&Deals[Days engaging]<=5,"<5",
+			        Deals[Days engaging]>5&&Deals[Days engaging]<=10,"5-10",
+			        Deals[Days engaging]>10&&Deals[Days engaging]<=50,"10-50",
+			        Deals[Days engaging]>50&&Deals[Days engaging]<=100,"50-100",
+			        Deals[Days engaging]>100,">100")
+			```
+		lineageTag: 3d574487-a637-40e9-a6a1-950e447e6b05
+		summarizeBy: none
+		sortByColumn: 'Days engaging bin sorting'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Days engaging bin sorting' = ```
+			
+			    SWITCH(
+			        TRUE(),
+			        Deals[Days engaging]>0&&Deals[Days engaging]<=5,1,
+			        Deals[Days engaging]>5&&Deals[Days engaging]<=10,2,
+			        Deals[Days engaging]>10&&Deals[Days engaging]<=50,3,
+			        Deals[Days engaging]>50&&Deals[Days engaging]<=100,4,
+			        Deals[Days engaging]>100,5)
+			```
+		formatString: 0
+		lineageTag: 3433b486-5094-4c49-9d10-20393d7f0685
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Deals = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("\\Mac\Home\Documents\Проекты\Личное\Portfolio Sales Dashboard\data\sales_pipeline.csv"),[Delimiter=",", Columns=8, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Renamed Columns" = Table.RenameColumns(#"Promoted Headers",{{"sales_agent", "salesman_id"}, {"product", "product_id"}, {"account", "client_id"}, {"deal_stage", "Stage"}, {"engage_date", "Date start"}, {"close_date", "Date finish"}, {"close_value", "Sum"}, {"opportunity_id", "id"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Date start", type date}, {"Date finish", type date}, {"Sum", type number}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","",null,Replacer.ReplaceValue,{"client_id"})
+				in
+				    #"Replaced Value"
+
+	annotation PBI_NavigationStepName = Навигация
+
+	annotation PBI_ResultType = Table
+
