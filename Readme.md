@@ -1,3 +1,7 @@
+<p align="center">
+  <img align="center" src="images/page_01.png" height="250">
+</p>
+
 # Overview
 A sales analysis dashboard for a company dataset from [Maven analytics challenge](https://mavenanalytics.io/challenges/maven-sales-challenge/8f59bcfa-d310-4947-b3d8-917b3cce270e). The focus is minimalism, simplicity and ease of use and understanding
 
@@ -7,9 +11,7 @@ Features:
 - Plan completion tracking by manager and product tracking
 - SVG icons showing client company sector
 - Time to close a deals bar chart
-<p align="center">
-  <img align="center" src="images/page_01.png" height="250">
-</p>
+
 <p align="center">
   <img align="center" src="images/page_02.png" height="250">
 </p>
