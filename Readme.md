@@ -1,5 +1,5 @@
 <p align="center">
-  <img align="center" src="images/page_01.png" height="250">
+  <img align="center" src="images/page_01.png" height="350">
 </p>
 
 # Overview
@@ -13,16 +13,10 @@ Features:
 - Time to close a deals bar chart
 
 <p align="center">
-  <img align="center" src="images/page_02.png" height="250">
-</p>
-<p align="center">
-  <img align="center" src="images/page_03.png" height="250">
-</p>
-<p align="center">
-  <img align="center" src="images/page_04.png" height="250">
-</p>
-<p align="center">
-  <img align="center" src="images/page_05.png" height="250">
+    <img src="images/page_02.png" height="250">
+    <img src="images/page_03.png" height="250">
+    <img src="images/page_04.png" height="250">
+    <img src="images/page_05.png" height="250">
 </p>
 
 # Report internal structure
