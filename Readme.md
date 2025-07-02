@@ -3,14 +3,14 @@
 </p>
 
 # Overview
-A sales analysis dashboard for a company dataset from [Maven analytics challenge](https://mavenanalytics.io/challenges/maven-sales-challenge/8f59bcfa-d310-4947-b3d8-917b3cce270e). The focus is minimalism, simplicity and ease of use and understanding
+A sales analysis dashboard based on a dataset from [Maven analytics challenge](https://mavenanalytics.io/challenges/maven-sales-challenge/8f59bcfa-d310-4947-b3d8-917b3cce270e). The focus is minimalism, simplicity and ease of use and understanding
 
 Features:
 - Hierachichal date selection
 - KPIs comparison to previous selected period
-- Plan completion tracking by manager and product tracking
+- Plan completion tracking by manager and product
 - SVG icons showing client company sector
-- Time to close a deals bar chart
+- Time to close a deal bar chart
 
 <p align="center">
     <img src="images/page_02.png" height="250">
