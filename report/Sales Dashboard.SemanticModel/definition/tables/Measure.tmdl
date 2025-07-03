@@ -495,18 +495,23 @@ table Measure
 			    ISFILTERED('Calendar'[Month]),Prefix&"month",
 			    ISFILTERED('Calendar'[Quarter]),Prefix&"quarter",
 			    ISFILTERED('Calendar'[Year]),Prefix&"year",BLANK())
+		displayFolder: KPI titles
 		lineageTag: 4ffa2a68-6995-42f3-b4db-ab94c0274db0
 
-	measure 'Sum of sales comparison title' = "Sum of sales and compasion against "&[Selected period level]
+	measure 'Sum of sales comparison title' = "Sum of sales and comparison against "&[Selected period level]
+		displayFolder: KPI titles
 		lineageTag: 8ccec8f1-ce32-4c51-b7a2-afbbe2326653
 
-	measure 'Amount of sales comparison title' = "Amount of sales and compasion against "&[Selected period level]
+	measure 'Amount of sales comparison title' = "Amount of sales and comparison against "&[Selected period level]
+		displayFolder: KPI titles
 		lineageTag: 5086d73f-b934-4a31-b50a-19425b9d6ffe
 
-	measure 'Average sum of sale comparison title' = "Average sum of sale and compasion against "&[Selected period level]
+	measure 'Average sum of sale comparison title' = "Average sum of sale and comparison against "&[Selected period level]
+		displayFolder: KPI titles
 		lineageTag: 82a62dd7-4295-4c4e-b03e-7dcb9f9760fb
 
-	measure 'Conversion rate comparison title' = "Conversion rate and compasion against "&[Selected period level]
+	measure 'Conversion rate comparison title' = "Conversion rate and comparison against "&[Selected period level]
+		displayFolder: KPI titles
 		lineageTag: 8197ad58-43d3-489d-9057-f64fb127ebf9
 
 	partition Measure = m
