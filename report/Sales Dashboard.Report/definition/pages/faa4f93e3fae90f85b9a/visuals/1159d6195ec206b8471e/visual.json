@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "1159d6195ec206b8471e",
   "position": {
-    "x": 580.90909090909088,
-    "y": 111.81818181818181,
+    "x": 590,
+    "y": 168.75,
     "z": 9000,
-    "height": 203.63636363636363,
-    "width": 332.72727272727269,
+    "height": 203.75,
+    "width": 365,
     "tabOrder": 8000
   },
   "visual": {
@@ -159,7 +159,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Clients by number of employees'"
+                  "Value": "'Amount of clients by number of employees'"
                 }
               }
             }

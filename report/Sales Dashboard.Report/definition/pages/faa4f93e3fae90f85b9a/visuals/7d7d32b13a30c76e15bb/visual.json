@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "7d7d32b13a30c76e15bb",
   "position": {
-    "x": 926.36363636363626,
-    "y": 111.81818181818181,
+    "x": 971.25,
+    "y": 168.75,
     "z": 5000,
-    "height": 203.63636363636363,
-    "width": 323.63636363636363,
+    "height": 203.75,
+    "width": 371.25,
     "tabOrder": 4000
   },
   "visual": {
@@ -159,7 +159,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Clients by revenue'"
+                  "Value": "'Amount of clients by revenue'"
                 }
               }
             }

@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "457f6bf4316079aedad3",
   "position": {
-    "x": 580.90909090909088,
-    "y": 342.72727272727269,
+    "x": 590,
+    "y": 392.5,
     "z": 2000,
-    "height": 358.18181818181813,
-    "width": 669.090909090909,
+    "height": 350,
+    "width": 751.25,
     "tabOrder": 1000
   },
   "visual": {
-    "visualType": "azureMap",
+    "visualType": "filledMap",
     "query": {
       "queryState": {
         "Category": {
@@ -32,7 +32,7 @@
             }
           ]
         },
-        "Size": {
+        "Tooltips": {
           "projections": [
             {
               "field": {
@@ -55,46 +55,10 @@
     "objects": {
       "mapControls": [
         {
-          "properties": {
-            "defaultStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "'road'"
-                }
-              }
-            },
-            "showLabels": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showStylePicker": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "showNavigationControls": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "showSelectionControl": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ],
-      "bubbleLayer": [
+      "categoryLabels": [
         {
           "properties": {
             "show": {
@@ -103,46 +67,66 @@
                   "Value": "true"
                 }
               }
-            },
-            "bubbleRadius": {
+            }
+          }
+        }
+      ],
+      "mapStyles": [
+        {
+          "properties": {
+            "mapTheme": {
               "expr": {
                 "Literal": {
-                  "Value": "11L"
+                  "Value": "'canvasLight'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 6,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             },
-            "minBubbleRadius": {
-              "expr": {
-                "Literal": {
-                  "Value": "11L"
-                }
-              }
-            },
-            "maxRadius": {
-              "expr": {
-                "Literal": {
-                  "Value": "38L"
-                }
-              }
-            },
-            "bubbleStrokeWidth": {
-              "expr": {
-                "Literal": {
-                  "Value": "1L"
-                }
-              }
-            },
-            "autoStrokeColor": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "layerPosition": {
-              "expr": {
-                "Literal": {
-                  "Value": "''"
+            "fillRule": {
+              "linearGradient2": {
+                "min": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'minColor'"
+                      }
+                    }
+                  }
+                },
+                "max": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'maxColor'"
+                      }
+                    }
+                  }
+                },
+                "nullColoringStrategy": {
+                  "strategy": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'asZero'"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -201,7 +185,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sales by client country'"
+                  "Value": "'Amount of sales by client country'"
                 }
               }
             },
@@ -222,6 +206,19 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Default'"
                 }
               }
             }

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "2c652df9123a53d521e7",
   "position": {
-    "x": 33.636363636363633,
-    "y": 342.72727272727269,
+    "x": 22.5,
+    "y": 392.5,
     "z": 3000,
-    "height": 358.18181818181813,
-    "width": 534.5454545454545,
+    "height": 351.25,
+    "width": 546.25,
     "tabOrder": 2000
   },
   "visual": {
@@ -305,7 +305,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sales by sector'"
+                  "Value": "'Sum of sales by client company sector'"
                 }
               }
             },
