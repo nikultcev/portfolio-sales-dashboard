@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "13b8dd45ad078cbe3802",
   "position": {
-    "x": 240.98301886792453,
-    "y": 179.12641509433962,
-    "z": 12000,
-    "height": 121.13584905660377,
-    "width": 193.30188679245285,
+    "x": 281.06995884773664,
+    "y": 179.88477366255145,
+    "z": 16000,
+    "height": 144.28257887517148,
+    "width": 254.83676268861456,
     "tabOrder": 6000
   },
   "visual": {
@@ -213,6 +213,13 @@
                   "Value": "'show'"
                 }
               }
+            },
+            "target1DecimalPlaces": {
+              "expr": {
+                "Literal": {
+                  "Value": "'0'"
+                }
+              }
             }
           }
         }
@@ -224,8 +231,13 @@
           "properties": {
             "text": {
               "expr": {
-                "Literal": {
-                  "Value": "'Amount of sales'"
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure"
+                    }
+                  },
+                  "Property": "Amount of sales comparison title"
                 }
               }
             },
@@ -245,6 +257,13 @@
                       "Percent": 0.2
                     }
                   }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
                 }
               }
             }

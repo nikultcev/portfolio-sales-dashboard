@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "1cfbae4f69947e54ad5d",
   "position": {
-    "x": 956.2,
-    "y": 179.12641509433962,
-    "z": 8000,
-    "height": 122.4245283018868,
-    "width": 387.89245283018869,
-    "tabOrder": 8000
+    "x": 1081.1111111111111,
+    "y": 180,
+    "z": 12000,
+    "height": 144.44444444444443,
+    "width": 258.88888888888886,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "gauge",
@@ -66,6 +66,13 @@
                   }
                 }
               }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -84,6 +91,13 @@
                   }
                 }
               }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -100,6 +114,13 @@
                       "Percent": 0.2
                     }
                   }
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

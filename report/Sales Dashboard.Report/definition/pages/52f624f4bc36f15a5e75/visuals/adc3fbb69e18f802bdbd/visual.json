@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "adc3fbb69e18f802bdbd",
   "position": {
-    "x": 452.32641509433967,
-    "y": 179.12641509433962,
-    "z": 4000,
-    "height": 121.13584905660377,
-    "width": 238.40566037735849,
+    "x": 550.89711934156378,
+    "y": 179.88477366255145,
+    "z": 8000,
+    "height": 144.28257887517148,
+    "width": 252.96296296296296,
     "tabOrder": 2000
   },
   "visual": {
@@ -224,8 +224,13 @@
           "properties": {
             "text": {
               "expr": {
-                "Literal": {
-                  "Value": "'Average sum of sale'"
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure"
+                    }
+                  },
+                  "Property": "Average sum of sale comparison title"
                 }
               }
             },
@@ -245,6 +250,13 @@
                       "Percent": 0.2
                     }
                   }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
                 }
               }
             }

@@ -26,7 +26,7 @@ table Measure
 			                            [Amount of sales],
 			                            PREVIOUSYEAR('Calendar'[Date])))))
 			```
-		formatString: 0
+		formatString: #,0
 		displayFolder: Calculations for previous period
 		lineageTag: b298df4e-1c49-4dd8-a231-c24f13cd9fbb
 
@@ -116,7 +116,7 @@ table Measure
 			                            [Sum of sales],
 			                            PREVIOUSYEAR('Calendar'[Date])))))
 			```
-		formatString: #,0.00
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		displayFolder: Calculations for previous period
 		lineageTag: baf7986c-c640-43f8-9ad9-6cec8ed831d2
 
@@ -211,11 +211,11 @@ table Measure
 			        SUM('Deals'[Sum]),
 			        'Deals'[Stage]="Won")
 			```
-		formatString: #,0
+		formatString: \$#,0;(\$#,0);\$#,0
 		displayFolder: Main calculations
 		lineageTag: c13d769a-000b-486a-8b61-8f71bb6d07a9
 
-		annotation PBI_FormatHint = {"isDecimal":true}
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	measure 'Sum of sales, rolling total' = ```
 			
@@ -268,7 +268,7 @@ table Measure
 		lineageTag: ea25fd42-c267-4d7d-bb20-bfc9f245c5cb
 
 	measure 'Change of average time to sale, abs.' = [Average time to sale]-[Average time to sale for previous period]
-		formatString: #,0.00
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		displayFolder: Change for previous period
 		lineageTag: a083e1a8-be6d-4f0d-a674-f84487d693bd
 
@@ -278,10 +278,11 @@ table Measure
 		lineageTag: 293350b0-2f7f-4587-915a-72b15d4636ae
 
 	measure 'Change of average sale sum, abs.' = [Average sale sum]-[Average sale sum for previous period]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: Change for previous period
 		lineageTag: 1c33ff18-fce3-493a-957e-b1251bec112a
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	measure 'Change of average sale sum, rule' = ```
 			
@@ -296,7 +297,7 @@ table Measure
 		lineageTag: 794c3cc3-ce73-43bf-890e-5819a8d57aa4
 
 	measure 'Change of sum of sales, abs.' = [Sum of sales]-[Sum of sales for previous period]
-		formatString: #,0.00
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		displayFolder: Change for previous period
 		lineageTag: 474ceafc-3626-4aa7-978e-0fa952625b7f
 
@@ -484,6 +485,29 @@ table Measure
 	measure 'Last dataset updated date' = MAX('Dataset updated date'[Dataset updated date])
 		formatString: General Date
 		lineageTag: 6d646cbd-8bfb-4a4f-bcbc-51b013d10c0c
+
+	measure 'Selected period level' =
+			
+			var Prefix = "previous "
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISFILTERED('Calendar'[Month]),Prefix&"month",
+			    ISFILTERED('Calendar'[Quarter]),Prefix&"quarter",
+			    ISFILTERED('Calendar'[Year]),Prefix&"year",BLANK())
+		lineageTag: 4ffa2a68-6995-42f3-b4db-ab94c0274db0
+
+	measure 'Sum of sales comparison title' = "Sum of sales and compasion against "&[Selected period level]
+		lineageTag: 8ccec8f1-ce32-4c51-b7a2-afbbe2326653
+
+	measure 'Amount of sales comparison title' = "Amount of sales and compasion against "&[Selected period level]
+		lineageTag: 5086d73f-b934-4a31-b50a-19425b9d6ffe
+
+	measure 'Average sum of sale comparison title' = "Average sum of sale and compasion against "&[Selected period level]
+		lineageTag: 82a62dd7-4295-4c4e-b03e-7dcb9f9760fb
+
+	measure 'Conversion rate comparison title' = "Conversion rate and compasion against "&[Selected period level]
+		lineageTag: 8197ad58-43d3-489d-9057-f64fb127ebf9
 
 	partition Measure = m
 		mode: import
