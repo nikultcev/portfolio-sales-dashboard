@@ -1,0 +1,24 @@
+table 'Dataset updated date'
+	lineageTag: 20182c69-1b8e-4079-832b-2200fa0c12ec
+
+	column 'Dataset updated date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f3493688-66c1-4e2c-9a3f-7656ba85e124
+		summarizeBy: none
+		sourceColumn: Dataset updated date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dataset updated date' = m
+		mode: import
+		source =
+				let
+				    Source = DateTime.FixedLocalNow()
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = DateTime
+

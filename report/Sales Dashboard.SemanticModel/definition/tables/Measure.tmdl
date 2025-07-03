@@ -481,6 +481,10 @@ table Measure
 		displayFolder: Display rules
 		lineageTag: 21299560-60d9-4a8c-84fc-a68e58d4242e
 
+	measure 'Last dataset updated date' = MAX('Dataset updated date'[Dataset updated date])
+		formatString: General Date
+		lineageTag: 6d646cbd-8bfb-4a4f-bcbc-51b013d10c0c
+
 	partition Measure = m
 		mode: import
 		source =

@@ -186,6 +186,11 @@
           "name": "Business6015281857819027.json",
           "path": "Business6015281857819027.json",
           "type": "CustomTheme"
+        },
+        {
+          "name": "company_logo7926749115917591.png",
+          "path": "company_logo7926749115917591.png",
+          "type": "Image"
         }
       ]
     }
