@@ -1,38 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "8eeb94105d070cee1bb8",
+  "name": "98bd161310d07bb2b732",
   "position": {
-    "x": 808.75,
-    "y": 316.25,
-    "z": 3000,
-    "height": 432.5,
-    "width": 532.5,
-    "tabOrder": 2000
+    "x": 1149.9886234357225,
+    "y": 15.54038680318544,
+    "z": 5002,
+    "height": 52.8373151308305,
+    "width": 192.70079635949944,
+    "tabOrder": 5003
   },
   "visual": {
-    "visualType": "funnel",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Deals"
-                    }
-                  },
-                  "Property": "Stage"
-                }
-              },
-              "queryRef": "Deals.Stage",
-              "nativeQueryRef": "Stage",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -42,11 +23,11 @@
                       "Entity": "Measure"
                     }
                   },
-                  "Property": "Amount of deals"
+                  "Property": "Last dataset updated date"
                 }
               },
-              "queryRef": "Measure.Amount of deals",
-              "nativeQueryRef": "Amount of deals"
+              "queryRef": "Measure.Last dataset updated date",
+              "nativeQueryRef": "Last dataset updated date"
             }
           ]
         }
@@ -55,53 +36,36 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Deals"
+                    "Entity": "Measure"
                   }
                 },
-                "Property": "Stage"
+                "Property": "Last dataset updated date"
               }
             },
             "direction": "Ascending"
           }
-        ]
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
-      "dataPoint": [
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 5,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      ],
       "labels": [
         {
           "properties": {
-            "labelDisplayUnits": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "10D"
                 }
               }
             }
           }
         }
       ],
-      "percentBarLabel": [
+      "categoryLabels": [
         {
           "properties": {
             "show": {
@@ -119,17 +83,50 @@
       "title": [
         {
           "properties": {
-            "alignment": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "'center'"
+                  "Value": "true"
                 }
               }
             },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Current amount of deals by stages'"
+                  "Value": "'Last update'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

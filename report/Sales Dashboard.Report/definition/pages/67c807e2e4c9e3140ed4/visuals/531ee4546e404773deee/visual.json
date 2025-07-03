@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "531ee4546e404773deee",
   "position": {
-    "x": 32.902155887230514,
-    "y": 266.40132669983416,
+    "x": 22.5,
+    "y": 316.25,
     "z": 4000,
-    "height": 431.97346600331679,
-    "width": 756.74958540630189,
+    "height": 435,
+    "width": 768.75,
     "tabOrder": 3000
   },
   "visual": {
@@ -397,7 +397,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Deals by stage and team'"
+                  "Value": "'Amount of deals breakdown by stage and team'"
                 }
               }
             },

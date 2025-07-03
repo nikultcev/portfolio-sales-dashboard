@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "ff50663d6bae0953a6b0",
   "position": {
-    "x": 659.090909090909,
-    "y": 108.18181818181817,
+    "x": 650,
+    "y": 170,
     "z": 4000,
-    "height": 320.90909090909088,
-    "width": 590.90909090909088,
+    "height": 582.5,
+    "width": 698.75,
     "tabOrder": 3000
   },
   "visual": {
@@ -192,6 +192,26 @@
             }
           }
         }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -221,7 +241,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sales perfomance compared to previous period'"
+                  "Value": "'Sum of sales by salesman and comparison against previous period'"
                 }
               }
             },

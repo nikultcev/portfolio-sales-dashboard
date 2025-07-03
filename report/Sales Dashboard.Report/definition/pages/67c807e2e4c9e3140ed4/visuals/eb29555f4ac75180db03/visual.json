@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "44c3e6cb3c22497930ed",
+  "name": "eb29555f4ac75180db03",
   "position": {
-    "x": 82.5,
-    "y": 12.5,
-    "z": 15000,
-    "height": 53.75,
-    "width": 446.25,
-    "tabOrder": 14000
+    "x": 82.475471698113211,
+    "y": 12.886792452830189,
+    "z": 4001,
+    "height": 52.835849056603777,
+    "width": 430.41886792452834,
+    "tabOrder": 3002
   },
   "visual": {
     "visualType": "textbox",
@@ -19,14 +19,14 @@
               {
                 "textRuns": [
                   {
-                    "value": "Sales breakdown by ",
+                    "value": "Deals funnel ",
                     "textStyle": {
                       "fontSize": "24pt",
                       "color": "#000000"
                     }
                   },
                   {
-                    "value": "products",
+                    "value": "overview",
                     "textStyle": {
                       "fontSize": "24pt",
                       "color": "#00668c"

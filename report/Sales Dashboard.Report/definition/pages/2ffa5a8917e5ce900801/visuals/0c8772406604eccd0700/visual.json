@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "44c3e6cb3c22497930ed",
+  "name": "0c8772406604eccd0700",
   "position": {
     "x": 82.5,
     "y": 12.5,
-    "z": 15000,
+    "z": 5001,
     "height": 53.75,
-    "width": 446.25,
-    "tabOrder": 14000
+    "width": 600,
+    "tabOrder": 5002
   },
   "visual": {
     "visualType": "textbox",
@@ -26,7 +26,7 @@
                     }
                   },
                   {
-                    "value": "products",
+                    "value": "sales team",
                     "textStyle": {
                       "fontSize": "24pt",
                       "color": "#00668c"
