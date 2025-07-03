@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "79fae6df1b282127c362",
+  "name": "44c3e6cb3c22497930ed",
   "position": {
-    "x": 830.5246252676659,
-    "y": 171.39052462526766,
-    "z": 14000,
-    "height": 38.372591006423981,
-    "width": 334.38972162740896,
-    "tabOrder": 12000
+    "x": 82.5,
+    "y": 12.5,
+    "z": 15000,
+    "height": 53.75,
+    "width": 446.25,
+    "tabOrder": 14001
   },
   "visual": {
     "visualType": "textbox",
@@ -19,15 +19,20 @@
               {
                 "textRuns": [
                   {
-                    "value": "Amount of sales plan completion",
+                    "value": "Sales breakdown by ",
                     "textStyle": {
-                      "fontFamily": "DIN",
-                      "fontSize": "14pt",
+                      "fontSize": "24pt",
                       "color": "#000000"
                     }
+                  },
+                  {
+                    "value": "products",
+                    "textStyle": {
+                      "fontSize": "24pt",
+                      "color": "#00668c"
+                    }
                   }
-                ],
-                "horizontalTextAlignment": "center"
+                ]
               }
             ]
           }
@@ -36,6 +41,19 @@
     },
     "visualContainerObjects": {
       "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
         {
           "properties": {
             "show": {

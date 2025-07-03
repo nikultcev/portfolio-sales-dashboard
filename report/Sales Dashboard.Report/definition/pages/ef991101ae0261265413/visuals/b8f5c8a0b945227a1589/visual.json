@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "48b4eb8014c6ce2d0603",
+  "name": "b8f5c8a0b945227a1589",
   "position": {
-    "x": 33.636363636363633,
-    "y": 13.636363636363635,
+    "x": 21.907547169811323,
+    "y": 77.320754716981142,
     "z": 0,
-    "height": 75.454545454545453,
-    "width": 1216.3636363636363,
-    "tabOrder": 14000
+    "height": 76.032075471698121,
+    "width": 1318.3188679245284,
+    "tabOrder": 14004
   },
   "visual": {
     "visualType": "actionButton",
@@ -122,19 +122,6 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "title": [
-        {
-          "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Filter panel background'"
                 }
               }
             }
