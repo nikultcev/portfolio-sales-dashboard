@@ -10,8 +10,8 @@
       "nodes": [
         {
           "location": {
-            "x": 511.0642197861257,
-            "y": 564.66913773394981
+            "x": 511.06421978612568,
+            "y": 564.66913773394984
           },
           "nodeIndex": "Calendar",
           "nodeLineageTag": "dac98148-4fc0-463b-89e6-6b62b2ccee07",
@@ -36,8 +36,8 @@
         },
         {
           "location": {
-            "x": 965.91641567792055,
-            "y": 434.98216245947845
+            "x": 965.91641567792032,
+            "y": 434.98216245947848
           },
           "nodeIndex": "Products",
           "nodeLineageTag": "9fdeb4d1-5e7e-4632-a0ff-6426869298e6",
@@ -61,7 +61,7 @@
         },
         {
           "location": {
-            "x": 791.0917799463133,
+            "x": 791.09177994631328,
             "y": 0
           },
           "nodeIndex": "Measure",
@@ -74,7 +74,7 @@
         },
         {
           "location": {
-            "x": 961.8183322647983,
+            "x": 961.8183322647984,
             "y": 687.232092287578
           },
           "nodeIndex": "Product Sales Plans",
@@ -88,7 +88,7 @@
         {
           "location": {
             "x": 0,
-            "y": 298.64041281975381
+            "y": 298.6404128197538
           },
           "nodeIndex": "Salesmen",
           "size": {
@@ -125,7 +125,7 @@
         }
       ],
       "name": "Все таблицы",
-      "zoomValue": 50.346892102823027,
+      "zoomValue": 50.346892102823032,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

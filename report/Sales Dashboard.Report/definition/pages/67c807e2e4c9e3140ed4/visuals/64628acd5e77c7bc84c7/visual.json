@@ -6,8 +6,7 @@
     "y": 171.25,
     "z": 1000,
     "height": 127.5,
-    "width": 1318.75,
-    "tabOrder": 0
+    "width": 1318.75
   },
   "visual": {
     "visualType": "hundredPercentStackedBarChart",

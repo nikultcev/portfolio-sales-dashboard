@@ -11,7 +11,7 @@ annotation PBI_QueryOrder = ["Clients","Products","Deals","Salesmen","Managers",
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBIDesktopVersion = 2.144.679.0 (25.06)+ef40146207b86a826d1c72a7727a743ee37450e9
+annotation PBIDesktopVersion = 2.145.1105.0 (25.07)+decbc46fce458c5b8d5109d6f32a743f2ac949c8
 
 annotation PBI_ProTooling = ["DevMode","CalcGroup","TMDLView_Desktop"]
 
