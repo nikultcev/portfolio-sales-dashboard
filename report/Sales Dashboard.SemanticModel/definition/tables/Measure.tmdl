@@ -475,9 +475,9 @@ table Measure
 			
 			SWITCH(
 			    TRUE(),
-			    [Product sales amount plan completion]>=0&&[Product sales amount plan completion]<=0.6,"bad",
-			    [Product sales amount plan completion]>0.6&&[Product sales amount plan completion]<=0.8,"neutral",
-			    [Product sales amount plan completion]>0.8,"good"
+			    [Product sales amount plan completion]<=0.6,"bad",
+			    [Product sales amount plan completion]<=1,"neutral",
+			    [Product sales amount plan completion]>=1,"good"
 			)
 		displayFolder: Display rules
 		lineageTag: 21299560-60d9-4a8c-84fc-a68e58d4242e
@@ -514,7 +514,7 @@ table Measure
 		displayFolder: KPI titles
 		lineageTag: 8197ad58-43d3-489d-9057-f64fb127ebf9
 
-	measure 'Product plan completion display values' = [Amount of sales]&" "&FORMAT([Product sales amount plan completion],"Percent")
+	measure 'Product plan completion display values' = FORMAT([Product sales amount plan completion],"Percent")&" ("&[Amount of sales]&")"
 		displayFolder: Display rules
 		lineageTag: 195f5378-20d4-42d0-aee4-d3fa9ef4b403
 

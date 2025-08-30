@@ -278,7 +278,7 @@
             "barBorderSize": {
               "expr": {
                 "Literal": {
-                  "Value": "1L"
+                  "Value": "0L"
                 }
               }
             }
@@ -297,6 +297,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Plan completion'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
                 }
               }
             }
