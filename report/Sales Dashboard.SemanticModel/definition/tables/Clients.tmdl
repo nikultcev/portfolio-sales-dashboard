@@ -65,10 +65,10 @@ table Clients
 			
 			SWITCH(
 			    TRUE(),
-			    Clients[Revenue]<1000,"<1000",
-			    Clients[Revenue]>=1000&&Clients[Revenue]<=2000,"1000-2000",
-			    Clients[Revenue]>2000&&Clients[Revenue]<=4000,"2000-4000",
-			    Clients[Revenue]>4000,">4000")
+			    Clients[Revenue]<1000,"<$1 000",
+			    Clients[Revenue]>=1000&&Clients[Revenue]<=2000,"$1 000-$2 000",
+			    Clients[Revenue]>2000&&Clients[Revenue]<=4000,"$2 000-$4 000",
+			    Clients[Revenue]>4000,">$4 000")
 		lineageTag: 9648da8a-8368-4cc7-96e8-093f6cfc17a7
 		summarizeBy: none
 		sortByColumn: 'Revenue bin sorting'
@@ -97,10 +97,10 @@ table Clients
 			    TRUE(),
 			    Clients[Number of employees]<100,"<100",
 			    Clients[Number of employees]>=100&&Clients[Number of employees]<=500,"100-500",
-			    Clients[Number of employees]>500&&Clients[Number of employees]<=1000,"500-1000",
-			    Clients[Number of employees]>1000&&Clients[Number of employees]<=2500,"1000-2500",
-			    Clients[Number of employees]>2500&&Clients[Number of employees]<=5000,"2500-5000",
-			    Clients[Number of employees]>5000,">5000"
+			    Clients[Number of employees]>500&&Clients[Number of employees]<=1000,"500-1 000",
+			    Clients[Number of employees]>1000&&Clients[Number of employees]<=2500,"1 000-2 500",
+			    Clients[Number of employees]>2500&&Clients[Number of employees]<=5000,"2 500-5 000",
+			    Clients[Number of employees]>5000,">5 000"
 			)
 		lineageTag: 6b60cc7a-01c2-4652-a911-47d469a8d46f
 		summarizeBy: none
