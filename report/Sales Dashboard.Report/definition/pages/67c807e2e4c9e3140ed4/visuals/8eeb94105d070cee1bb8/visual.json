@@ -6,8 +6,7 @@
     "y": 316.25,
     "z": 3000,
     "height": 432.5,
-    "width": 532.5,
-    "tabOrder": 2000
+    "width": 532.5
   },
   "visual": {
     "visualType": "funnel",

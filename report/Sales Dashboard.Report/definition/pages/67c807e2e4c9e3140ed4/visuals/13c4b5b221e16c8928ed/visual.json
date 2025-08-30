@@ -6,7 +6,8 @@
     "y": 81.25,
     "z": 2000,
     "height": 72.5,
-    "width": 1047.5
+    "width": 1047.5,
+    "tabOrder": 1000
   },
   "visualGroup": {
     "displayName": "Filters",
