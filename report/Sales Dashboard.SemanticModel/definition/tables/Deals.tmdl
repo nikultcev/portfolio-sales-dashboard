@@ -192,6 +192,15 @@ table Deals
 
 		annotation SummarizationSetBy = Automatic
 
+	column Cost
+		dataType: double
+		formatString: 0
+		lineageTag: e4e22024-ce52-4af4-af90-f4189a57d9ab
+		summarizeBy: sum
+		sourceColumn: Cost
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Deals = m
 		mode: import
 		source =
@@ -200,9 +209,13 @@ table Deals
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    #"Renamed Columns" = Table.RenameColumns(#"Promoted Headers",{{"sales_agent", "salesman_id"}, {"product", "product_id"}, {"account", "client_id"}, {"deal_stage", "Stage"}, {"engage_date", "Date start"}, {"close_date", "Date finish"}, {"close_value", "Sum"}, {"opportunity_id", "id"}}),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Date start", type date}, {"Date finish", type date}, {"Sum", type number}}),
-				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","",null,Replacer.ReplaceValue,{"client_id"})
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","",null,Replacer.ReplaceValue,{"client_id"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","GTXPro","GTX Pro",Replacer.ReplaceText,{"product_id"}),
+				    #"Merged Queries" = Table.NestedJoin(#"Replaced Value1", {"product_id"}, Products, {"id"}, "Products", JoinKind.LeftOuter),
+				    #"Expanded Products" = Table.ExpandTableColumn(#"Merged Queries", "Products", {"Price"}, {"Price"}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Expanded Products",{{"Price", "Cost"}})
 				in
-				    #"Replaced Value"
+				    #"Renamed Columns1"
 
 	annotation PBI_NavigationStepName = Навигация
 

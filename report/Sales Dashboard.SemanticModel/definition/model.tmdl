@@ -4,6 +4,7 @@ model Model
 	discourageImplicitMeasures
 	sourceQueryCulture: ru-RU
 	dataAccessOptions
+		fastCombine
 		legacyRedirects
 		returnErrorValuesAsNull
 

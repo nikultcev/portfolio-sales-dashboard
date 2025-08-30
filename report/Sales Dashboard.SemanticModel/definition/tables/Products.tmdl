@@ -18,7 +18,7 @@ table Products
 		annotation SummarizationSetBy = Automatic
 
 	column Price
-		dataType: int64
+		dataType: double
 		formatString: #,0
 		lineageTag: 8b5184f2-3e1d-401c-b0d6-b821b3440f6a
 		summarizeBy: sum
@@ -42,9 +42,10 @@ table Products
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    #"Renamed Columns" = Table.RenameColumns(#"Promoted Headers",{{"product", "Product"}, {"series", "Product line"}, {"sales_price", "Price"}}),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Price", Int64.Type}}),
-				    #"Duplicated Column" = Table.DuplicateColumn(#"Changed Type", "Product", "id")
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Changed Type", "Product", "id"),
+				    #"Multiplied Column" = Table.TransformColumns(#"Duplicated Column", {{"Price", each Number.RoundDown(_ * 0.8), type number}})
 				in
-				    #"Duplicated Column"
+				    #"Multiplied Column"
 
 	annotation PBI_NavigationStepName = Навигация
 

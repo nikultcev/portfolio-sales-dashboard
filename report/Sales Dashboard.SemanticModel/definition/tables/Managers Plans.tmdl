@@ -44,8 +44,6 @@ table 'Managers Plans'
 				in
 				    #"Changed Type"
 
-	changedProperty = Name
-
 	annotation PBI_NavigationStepName = Навигация
 
 	annotation PBI_ResultType = Table

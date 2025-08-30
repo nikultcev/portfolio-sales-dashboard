@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "eb5b5b4b9c3619e2c460",
   "position": {
-    "x": 22.188832487309648,
-    "y": 170.5766497461929,
+    "x": 22.793802145411208,
+    "y": 170.95351609058403,
     "z": 1000,
-    "height": 289.84162436548224,
-    "width": 918.06294416243664,
+    "height": 317.48510131108464,
+    "width": 918.26460071513728,
     "tabOrder": 8000
   },
   "visual": {
@@ -90,6 +90,20 @@
               },
               "queryRef": "Measure.Average time to sale",
               "nativeQueryRef": "Average time to sale"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure"
+                    }
+                  },
+                  "Property": "Gross margin"
+                }
+              },
+              "queryRef": "Measure.Gross margin",
+              "nativeQueryRef": "Gross margin"
             }
           ]
         }
@@ -161,7 +175,7 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'GTX'"
+                    "Value": "'GTK'"
                   }
                 }
               ],
@@ -171,7 +185,7 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'GTK'"
+                    "Value": "'GTX'"
                   }
                 }
               ],
@@ -273,6 +287,20 @@
                   }
                 }
               }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           },
           "selector": {
@@ -281,13 +309,46 @@
         },
         {
           "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "dataBars": {
               "positiveColor": {
                 "solid": {
                   "color": {
                     "expr": {
                       "Literal": {
-                        "Value": "'#00668c'"
+                        "Value": "'#99c2d1'"
                       }
                     }
                   }
@@ -406,10 +467,101 @@
                   }
                 }
               }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           },
           "selector": {
             "metadata": "Measure.Average time to sale"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "dataBars": {
+              "positiveColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'#b6ccd8'"
+                      }
+                    }
+                  }
+                }
+              },
+              "negativeColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'minColor'"
+                      }
+                    }
+                  }
+                }
+              },
+              "axisColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'foreground'"
+                      }
+                    }
+                  }
+                }
+              },
+              "reverseDirection": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "hideText": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "totalMatchingOption": {
+                "expr": {
+                  "Literal": {
+                    "Value": "1L"
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measure.Gross margin"
           }
         }
       ],
@@ -419,7 +571,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "148.1640944287607D"
+                  "Value": "160D"
                 }
               }
             }
@@ -433,7 +585,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "163.06395560571326D"
+                  "Value": "160D"
                 }
               }
             }
@@ -447,13 +599,27 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "163.05284245769803D"
+                  "Value": "160D"
                 }
               }
             }
           },
           "selector": {
             "metadata": "Measure.Average time to sale"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "160D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measure.Gross margin"
           }
         }
       ],
@@ -467,6 +633,19 @@
                 }
               }
             }
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Measure.Amount of sales"
           }
         }
       ],
@@ -648,6 +827,116 @@
             }
           ]
         }
+      },
+      {
+        "name": "738b019d6e425c636e9c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Products"
+              }
+            },
+            "Property": "Product line"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "431492c0a1ba017d5066",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measure"
+              }
+            },
+            "Property": "Sum of sales"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3568d3fb64e8570a48c5",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measure"
+              }
+            },
+            "Property": "Amount of sales"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "m",
+              "Entity": "Measure",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "m"
+                            }
+                          },
+                          "Property": "Amount of sales"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "isHiddenInViewMode": true,
+        "isLockedInViewMode": true
+      },
+      {
+        "name": "b8c49e6203c0373a2a01",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measure"
+              }
+            },
+            "Property": "Average time to sale"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3a3e5652d0ecde019830",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measure"
+              }
+            },
+            "Property": "Gross margin"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

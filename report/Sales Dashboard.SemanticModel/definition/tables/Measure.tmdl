@@ -520,7 +520,24 @@ table Measure
 
 	measure 'Max plan completion' = 1
 		formatString: 0%;-0%;0%
+		displayFolder: Plan
 		lineageTag: 7bbc2ed2-1d24-4ee8-81a7-30376f162935
+
+	measure 'Gross margin' = [Sum of sales] - [Cost of goods sold]
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Main calculations
+		lineageTag: cb4d3798-b7bb-4bd7-b2fe-9280ec95932f
+
+	measure 'Cost of goods sold' = ```
+			
+			    CALCULATE(
+			        SUM('Deals'[Cost]),
+			        'Deals'[Stage]="Won"
+			    )
+			```
+		formatString: #,0
+		displayFolder: Main calculations
+		lineageTag: ae9ad0ba-0964-4626-9222-07cb6fe9d495
 
 	partition Measure = m
 		mode: import
