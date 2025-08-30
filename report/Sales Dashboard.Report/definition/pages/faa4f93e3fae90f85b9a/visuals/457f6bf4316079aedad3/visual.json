@@ -6,7 +6,8 @@
     "y": 392.5,
     "z": 3000,
     "height": 361.25,
-    "width": 755
+    "width": 755,
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "filledMap",

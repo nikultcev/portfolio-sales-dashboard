@@ -539,6 +539,20 @@ table Measure
 		displayFolder: Main calculations
 		lineageTag: ae9ad0ba-0964-4626-9222-07cb6fe9d495
 
+	measure 'Revenue contribution by product' = ```
+			
+			var TotalSales = 
+			    CALCULATE(
+			        [Sum of sales],
+			        REMOVEFILTERS(Products)
+			    )
+			RETURN
+			DIVIDE([Sum of sales],TotalSales)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Main calculations
+		lineageTag: e7345c96-a024-4432-a3ee-f2dcfec87eed
+
 	partition Measure = m
 		mode: import
 		source =
