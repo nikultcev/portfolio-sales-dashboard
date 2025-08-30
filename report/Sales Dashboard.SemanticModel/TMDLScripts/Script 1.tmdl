@@ -1,0 +1,539 @@
+createOrReplace
+
+	table Measure
+		lineageTag: 9dd36037-426c-459b-a121-aff004244120
+
+		measure 'Change of average time to sale, rule' = ```
+				
+				    IF([Change of average time to sale, %]<0,"ColoredArrowUp","ColoredArrowDown")
+				```
+			displayFolder: Display rules
+			lineageTag: 9af84b31-b9e5-4277-9633-46a568014dd7
+
+		measure 'Amount of successful sales for previous period' = ```
+				
+				    IF(
+				        ISFILTERED('Calendar'[Month]),
+				        CALCULATE(
+				            [Amount of sales],
+				            PREVIOUSMONTH('Calendar'[Date])),
+				            IF(
+				                ISFILTERED('Calendar'[Quarter]),
+				                CALCULATE(
+				                    [Amount of sales],
+				                    PREVIOUSQUARTER('Calendar'[Date])),
+				                    IF(
+				                        ISFILTERED('Calendar'[Year]),
+				                        CALCULATE(
+				                            [Amount of sales],
+				                            PREVIOUSYEAR('Calendar'[Date])))))
+				```
+			formatString: #,0
+			displayFolder: Calculations for previous period
+			lineageTag: b298df4e-1c49-4dd8-a231-c24f13cd9fbb
+
+		measure 'Conversion rate for previous period' = ```
+				
+				    IF(
+				        ISFILTERED('Calendar'[Month]),
+				        CALCULATE(
+				            [Conversion rate],
+				            PREVIOUSMONTH('Calendar'[Date])),
+				            IF(
+				                ISFILTERED('Calendar'[Quarter]),
+				                CALCULATE(
+				                    [Conversion rate],
+				                    PREVIOUSQUARTER('Calendar'[Date])),
+				                    IF(
+				                        ISFILTERED('Calendar'[Year]),
+				                        CALCULATE(
+				                            [Conversion rate],
+				                            PREVIOUSYEAR('Calendar'[Date])))))
+				```
+			formatString: 0.00%;-0.00%;0.00%
+			displayFolder: Calculations for previous period
+			lineageTag: 00adf35c-c73f-4ce9-8a3f-f7518970d230
+
+		measure 'Average time to sale for previous period' = ```
+				
+				    IF(
+				        ISFILTERED('Calendar'[Month]),
+				        CALCULATE(
+				            [Average time to sale],
+				            PREVIOUSMONTH('Calendar'[Date])),
+				            IF(
+				                ISFILTERED('Calendar'[Quarter]),
+				                CALCULATE(
+				                    [Average time to sale],
+				                    PREVIOUSQUARTER('Calendar'[Date])),
+				                    IF(
+				                        ISFILTERED('Calendar'[Year]),
+				                        CALCULATE(
+				                            [Average time to sale],
+				                            PREVIOUSYEAR('Calendar'[Date])))))
+				```
+			displayFolder: Calculations for previous period
+			lineageTag: d8416d9c-4c74-40bf-8fe6-b05076a06e2f
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Average sale sum for previous period' = ```
+				
+				    IF(
+				        ISFILTERED('Calendar'[Month]),
+				        CALCULATE(
+				            [Average sale sum],
+				            PREVIOUSMONTH('Calendar'[Date])),
+				            IF(
+				                ISFILTERED('Calendar'[Quarter]),
+				                CALCULATE(
+				                    [Average sale sum],
+				                    PREVIOUSQUARTER('Calendar'[Date])),
+				                    IF(
+				                        ISFILTERED('Calendar'[Year]),
+				                        CALCULATE(
+				                            [Average sale sum],
+				                            PREVIOUSYEAR('Calendar'[Date])))))
+				```
+			displayFolder: Calculations for previous period
+			lineageTag: 23ed76c6-0d23-4837-a5ed-c753defb2068
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Sum of sales for previous period' = ```
+				
+				    IF(
+				        ISFILTERED('Calendar'[Month]),
+				        CALCULATE(
+				            [Sum of sales],
+				            PREVIOUSMONTH('Calendar'[Date])),
+				            IF(
+				                ISFILTERED('Calendar'[Quarter]),
+				                CALCULATE(
+				                    [Sum of sales],
+				                    PREVIOUSQUARTER('Calendar'[Date])),
+				                    IF(
+				                        ISFILTERED('Calendar'[Year]),
+				                        CALCULATE(
+				                            [Sum of sales],
+				                            PREVIOUSYEAR('Calendar'[Date])))))
+				```
+			formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+			displayFolder: Calculations for previous period
+			lineageTag: baf7986c-c640-43f8-9ad9-6cec8ed831d2
+
+		measure 'Amount of active sales' = ```
+				
+				    CALCULATE(
+				        DISTINCTCOUNT('Deals'[id]),
+				        'Deals'[Stage]="salesа")
+				```
+			formatString: 0
+			displayFolder: Main calculations
+			lineageTag: 60961138-6cb8-4270-85c0-83af703d763e
+
+		measure 'Amount of clients with successful sales' =
+				
+				CALCULATE(
+				    [Amount of clients],
+				    'Deals'[Stage]="Won")
+			formatString: 0
+			displayFolder: Main calculations
+			lineageTag: 8b43acc4-6c6d-4f5d-a94f-fe4fbc1678d2
+
+		measure 'Amount of lost sales' =
+				
+				CALCULATE(
+				    DISTINCTCOUNT('Deals'[id]),
+				    'Deals'[Stage]="Упущено")
+			displayFolder: Main calculations
+			lineageTag: 0f9e4713-23a7-4d41-b1b8-ca5a09c0f7aa
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Amount of potential sales' = ```
+				
+				    CALCULATE(
+				        COUNT('Deals'[id]),
+				        'Deals'[Stage]="Разведка")
+				```
+			displayFolder: Main calculations
+			lineageTag: 47a97cd7-9463-45ff-a0c2-982c6ef776b2
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Amount of sales by company' = ```
+				
+				    CALCULATE(
+				        [Amount of sales],
+				        REMOVEFILTERS('Salesmen'))
+				```
+			formatString: 0
+			displayFolder: Main calculations
+			lineageTag: d7c6322c-a259-44f1-8207-f62303cc88db
+
+		measure 'Amount of sales' = ```
+				
+				    CALCULATE(
+				        DISTINCTCOUNT('Deals'[id]),
+				        'Deals'[Stage]="Won")
+				```
+			formatString: #,0
+			displayFolder: Main calculations
+			lineageTag: 88670140-e931-4045-8a75-ac792e6c8fe0
+
+		measure 'Average sale sum' = ```
+				
+				    AVERAGE('Deals'[Sum])
+				```
+			formatString: #,0.00
+			displayFolder: Main calculations
+			lineageTag: 2aa99835-da1f-4326-b03b-1fcc17482cb4
+
+		measure 'Average time to sale' = ```
+				
+				    AVERAGE(
+				        'Deals'[Time to sale])
+				```
+			displayFolder: Main calculations
+			lineageTag: 70a9ba8d-1b01-4003-946a-b61c92dffd72
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Conversion rate' =
+				
+				[Amount of sales]/DISTINCTCOUNT('Deals'[id])
+			formatString: 0.00%;-0.00%;0.00%
+			displayFolder: Main calculations
+			lineageTag: f168d1c0-f9cd-43e3-a93a-32bcc0df8b8f
+
+		measure 'Sum of sales' = ```
+				
+				    CALCULATE(
+				        SUM('Deals'[Sum]),
+				        'Deals'[Stage]="Won")
+				```
+			formatString: \$#,0;(\$#,0);\$#,0
+			displayFolder: Main calculations
+			lineageTag: c13d769a-000b-486a-8b61-8f71bb6d07a9
+
+			annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+		measure 'Sum of sales, rolling total' = ```
+				
+				    CALCULATE(
+				        [Sum of sales],
+				        'Calendar'[Date]<=MIN('Calendar'[Date]))
+				```
+			displayFolder: Main calculations
+			lineageTag: e43cd0fb-d644-4b51-9b7a-b060fec1f150
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Change of amount of sales, %' = [Amount of sales]/[Amount of successful sales for previous period]-1
+			formatString: #,0.00%;-#,0.00%;#,0.00%
+			displayFolder: Change for previous period
+			lineageTag: 4bf04b43-65c2-442e-a202-af07b95ae18c
+
+		measure 'Change of amount of sales, abs.' = [Amount of sales]-[Amount of successful sales for previous period]
+			formatString: #,0
+			displayFolder: Change for previous period
+			lineageTag: e73486e5-0c8c-4061-b10e-7caf27be47af
+
+		measure 'Change of amount of sales, rule' = ```
+				
+				    IF([Change of amount of sales, %]>0,"ColoredArrowUp","ColoredArrowDown")
+				```
+			displayFolder: Display rules
+			lineageTag: 17ffc75a-2f81-44d1-95a6-b06ecf5bdd7e
+
+		measure 'Change of conversion rate, %' = [Conversion rate]/[Conversion rate for previous period]-1
+			formatString: 0.00%;-0.00%;0.00%
+			displayFolder: Change for previous period
+			lineageTag: 00db638e-b0a1-4d4d-82c6-803d66503393
+
+		measure 'Change of conversion rate, abs.' = [Conversion rate]-[Conversion rate for previous period]
+			formatString: 0.00%;-0.00%;0.00%
+			displayFolder: Change for previous period
+			lineageTag: 50d123f3-e3cf-482a-950c-0a0383c8e42b
+
+		measure 'Change of conversion rate, rule' = ```
+				
+				    IF([Change of conversion rate, %]>0,"ColoredArrowUp","ColoredArrowDown")
+				```
+			displayFolder: Display rules
+			lineageTag: a82267d7-240d-4e8c-853b-b21ee39048b4
+
+		measure 'Change of average time to sale, %' = [Average time to sale]/[Average time to sale for previous period]-1
+			formatString: 0.00%;-0.00%;0.00%
+			displayFolder: Change for previous period
+			lineageTag: ea25fd42-c267-4d7d-bb20-bfc9f245c5cb
+
+		measure 'Change of average time to sale, abs.' = [Average time to sale]-[Average time to sale for previous period]
+			formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+			displayFolder: Change for previous period
+			lineageTag: a083e1a8-be6d-4f0d-a674-f84487d693bd
+
+		measure 'Change of average sale sum, %' = [Average sale sum]/[Average sale sum for previous period]-1
+			formatString: 0.00%;-0.00%;0.00%
+			displayFolder: Change for previous period
+			lineageTag: 293350b0-2f7f-4587-915a-72b15d4636ae
+
+		measure 'Change of average sale sum, abs.' = [Average sale sum]-[Average sale sum for previous period]
+			formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+			displayFolder: Change for previous period
+			lineageTag: 1c33ff18-fce3-493a-957e-b1251bec112a
+
+			annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+		measure 'Change of average sale sum, rule' = ```
+				
+				    IF([Change of average sale sum, %]>0,"ColoredArrowUp","ColoredArrowDown")
+				```
+			displayFolder: Display rules
+			lineageTag: 3b12b117-f06a-48b6-adff-3f6519c76d50
+
+		measure 'Change of sum of sales, %' = ([Sum of sales]/[Sum of sales for previous period])-1
+			formatString: #,0.00%;-#,0.00%;#,0.00%
+			displayFolder: Change for previous period
+			lineageTag: 794c3cc3-ce73-43bf-890e-5819a8d57aa4
+
+		measure 'Change of sum of sales, abs.' = [Sum of sales]-[Sum of sales for previous period]
+			formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+			displayFolder: Change for previous period
+			lineageTag: 474ceafc-3626-4aa7-978e-0fa952625b7f
+
+		measure 'Change of sum of sales, rule' = ```
+				
+				    IF([Change of sum of sales, %]>0,"ColoredArrowUp","ColoredArrowDown")
+				```
+			displayFolder: Display rules
+			lineageTag: 322999e2-ea8b-423f-af3e-8b391fe1bd7d
+
+		measure 'Change of sum of sales, background' = ```
+				
+				    IF([Change of sum of sales, %]>0,"good","bad")
+				```
+			displayFolder: Display rules
+			lineageTag: ee3d52ee-865f-4ef3-b91b-ba8950da3b53
+
+		measure 'Change of amount of sales, background' = ```
+				
+				    IF([Change of amount of sales, %]>0,"good","bad")
+				```
+			displayFolder: Display rules
+			lineageTag: 32ccfbf7-e56d-4fdd-97ac-f3fa9ef52f01
+
+		measure 'Change of average sale sum, background' = ```
+				
+				    IF([Change of average sale sum, %]>0,"good","bad")
+				```
+			displayFolder: Display rules
+			lineageTag: 9eb571d8-887b-45e0-9352-5afbe2b1d3b6
+
+		measure 'Change of conversion rate, background' = ```
+				
+				    IF([Change of conversion rate, %]>0,"good","bad")
+				```
+			displayFolder: Display rules
+			lineageTag: 695bed00-a5e5-463e-b110-e27a4f1b332e
+
+		measure 'Team manager plan' = SUM('Managers Plans'[Plan])
+			formatString: #,0.00
+			displayFolder: Plan
+			lineageTag: 87eebb6f-3172-4878-bbba-bee439f55520
+
+		measure 'Team manager plan completion' = DIVIDE([Sum of sales],[Team manager plan])
+			formatString: 0.00%;-0.00%;0.00%
+			displayFolder: Plan
+			lineageTag: c112b0cc-269e-4544-a24e-f2ef4001b9b1
+
+		measure 'Team manager plan completion remainder' =
+				
+				IF(
+				    [Team manager plan completion]>=1,
+				        0,
+				        1-[Team manager plan completion]
+				)
+			displayFolder: Plan
+			lineageTag: 7ca7439d-d165-4525-8bf9-74d6eb54bc89
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Team manager plan completion background' =
+				
+				SWITCH(
+				    TRUE(),
+				    [Team manager plan completion]>=0&&[Team manager plan completion]<=0.6,"bad",
+				    [Team manager plan completion]>0.6&&[Team manager plan completion]<=0.8,"neutral",
+				    [Team manager plan completion]>0.8,"good"
+				)
+			displayFolder: Display rules
+			lineageTag: b25519e1-7e8a-410f-a92b-4a4693d93790
+
+		measure 'Client sector icons' =
+				
+				var IconSize = "width='800px' height='800px'"
+				var IconColor = "'#71C4EF'"
+				var IconCodePrefix = "data:image/svg+xml;utf8,<?xml version='1.0' encoding='utf-8'?>"
+				var IconCodeSuffix = "</svg>"
+				var Health = "<svg width='800px' height='800px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M11 5C9.89543 5 9 5.89543 9 7V9H7C5.89543 9 5 9.89543 5 11V13C5 14.1046 5.89543 15 7 15H9V17C9 18.1046 9.89543 19 11 19H13C14.1046 19 15 18.1046 15 17V15H17C18.1046 15 19 14.1046 19 13V11C19 9.89543 18.1046 9 17 9H15V7C15 5.89543 14.1046 5 13 5H11ZM11 7H13V9.5C13 10.3284 13.6716 11 14.5 11H17V13H14.5C13.6716 13 13 13.6716 13 14.5V17H11V14.5C11 13.6716 10.3284 13 9.5 13H7V11H9.5C10.3284 11 11 10.3284 11 9.5V7Z' fill="&IconColor&"/><path fill-rule='evenodd' clip-rule='evenodd' d='M20 1C21.6569 1 23 2.34315 23 4V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H20ZM20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20Z' fill="&IconColor&"/>"
+				
+				var Employment = "<svg fill="&IconColor&" version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 950 950' xml:space='preserve'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <g> <g> <g> <path d='M0,517.352c0,13.211,8.243,25.019,20.644,29.57l56.499,20.742c4.25-10.152,10.483-19.666,18.735-27.918 c16.486-16.486,38.406-25.566,61.722-25.566c23.315,0,45.235,9.08,61.722,25.566l172.915,172.914 c24.33,24.33,31.256,59.563,20.8,90.115c25.141,18.411,58.865,21.584,87.34,7.268L738.185,690.48 c38.854-19.532,54.917-64.051,41.763-102.336c-0.108,0-0.219,0.004-0.325,0.004c-31.656,0-61.48-13.911-81.826-38.168 L534.089,354.8l-23.117,23.117c-16.206,16.204-37.751,25.131-60.67,25.131c-22.918,0-44.465-8.925-60.67-25.131l-7.884-7.885 c-16.206-16.206-25.13-37.752-25.13-60.671c0-22.918,8.925-44.464,25.13-60.67l65.64-65.64l-13.702-16.334 c-25.049-30.156-67.626-38.977-102.594-21.253l-178.495,90.47L43.26,191.946c-20.7-8.328-43.258,6.911-43.258,29.224v296.182H0z'></path> <path d='M950,504.524v-242.43c0-17.397-14.104-31.5-31.5-31.5H779L635.51,127.021c-14.771-10.662-31.996-15.891-49.138-15.891 c-21.646,0-43.158,8.339-59.424,24.604l-64.854,64.853l-64.227,64.227c-24.604,24.603-24.604,64.493,0,89.096l7.884,7.885 c12.301,12.302,28.425,18.452,44.548,18.452c16.124,0,32.247-6.15,44.548-18.452l40.716-40.715l179.699,214.248 c13.398,15.975,31.974,26.096,51.916,29.086c4.103,0.615,8.26,0.936,12.441,0.936c6.003,0,12.06-0.646,18.064-1.969 l127.589-28.094C939.714,532.108,950,519.313,950,504.524z'></path> <path d='M284.914,819.983c12.592,12.593,29.096,18.888,45.6,18.888c16.504,0,33.009-6.295,45.601-18.888 c9.826-9.825,15.799-22.036,17.958-34.768c3.374-19.898-2.601-41.074-17.958-56.434L203.2,555.868 c-12.592-12.592-29.096-18.888-45.6-18.888s-33.008,6.296-45.6,18.888l0,0c-5.84,5.842-10.308,12.528-13.439,19.66 c-10.372,23.627-5.904,52.196,13.439,71.539L284.914,819.983z'></path> </g> </g> </g> </g>"
+				
+				var Entertainment = "<svg fill="&IconColor&" viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'><path d='M496.64 496.644c-11.311 0-20.48-9.169-20.48-20.48v-112.64c0-11.311 9.169-20.48 20.48-20.48h112.64c11.311 0 20.48 9.169 20.48 20.48v112.64c0 11.311-9.169 20.48-20.48 20.48H496.64zm92.16-40.96v-71.68h-71.68v71.68h71.68zm252.357-42.296c-2.978-6.862-8.649-12.533-15.511-15.511-32.717-14.187-63.077 16.173-48.892 48.884 2.98 6.868 8.651 12.539 15.514 15.517 32.717 14.187 63.077-16.173 48.89-48.89zm37.577-16.3c28.967 66.801-35.966 131.734-102.768 102.768-16.398-7.116-29.671-20.389-36.789-36.792-28.964-66.796 35.969-131.729 102.77-102.762 16.398 7.116 29.671 20.389 36.787 36.787zM710.287 113.25c16.001-5.367 31.261 9.837 25.954 25.857l-47.79 144.261c-4.802 14.495-23.205 18.827-33.968 7.996l-95.57-96.174c-10.7-10.767-6.377-29.025 8.014-33.853l143.36-48.087zm-99.093 76.441l48.854 49.163 24.43-73.745-73.284 24.582zm-231.962-73.357c60.974 65.665 60.974 172.704 0 238.369-7.696 8.289-7.216 21.247 1.072 28.943s21.247 7.216 28.943-1.072c75.566-81.381 75.566-212.73 0-294.111-7.696-8.289-20.655-8.769-28.943-1.072s-8.769 20.655-1.072 28.943zm300.74 550.054c65.551-64.574 171.944-64.574 237.495 0 8.058 7.938 21.025 7.84 28.962-.217s7.84-21.025-.217-28.962c-81.496-80.281-213.489-80.281-294.985 0-8.058 7.938-8.155 20.905-.217 28.962s20.905 8.155 28.962.217zM75.705 905.107L269.64 446.283c12.228-28.951 44.791-35.314 67.027-13.098l254.151 254.141c22.234 22.215 15.876 54.784-13.077 67.032l-458.853 193.91c-32.495 13.755-56.91-10.659-43.182-43.161zM561.79 716.631c1.622-.686 1.643-.709 1.484.106-.16.821-.167.801-1.412-.442L307.711 462.154c-1.242-1.241-1.268-1.251-.452-1.41s.798-.142.112 1.48l-186.245 440.63L561.79 716.631zM121.126 902.855l-18.194 7.689c-1.461.618-2.22.799-2.018.799 2.335.006 5.371 1.087 8.007 3.723 2.635 2.635 3.715 5.665 3.721 7.996.001.198.181-.564.794-2.016l7.689-18.191z'></path><path d='M175.642 749.561l98.796 98.785c7.998 7.998 20.966 7.997 28.963-.002s7.997-20.966-.002-28.963l-98.796-98.785c-7.998-7.998-20.966-7.997-28.963.002s-7.997 20.966.002 28.963z'></path></g>"
+				
+				var Finance = "<svg fill="&IconColor&" viewBox='0 0 50 50' version='1.2' baseProfile='tiny' xmlns='http://www.w3.org/2000/svg' overflow='inherit'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'><path d='M43 12h-43v26h50v-26h-7zm5 19.271c-2.328.643-4.086 2.399-4.729 4.729h-36.542c-.644-2.328-2.4-4.086-4.729-4.729v-12.542c2.329-.644 4.085-2.4 4.729-4.729h36.565c.672 2.257 2.449 4.034 4.706 4.706v12.565zm-20.884-4.216c-.23-.14-.116-.269-1.116-.388v2.897l.548-.102c.742-.26 1.114-.745 1.114-1.451 0-.409-.183-.731-.546-.956zm-4.501-4.727c0 .445.203.78.607 1 .155.087.416.184.777.289v-2.741c-.294.069-.552.173-.769.315-.41.272-.615.652-.615 1.137zm2.385-7.328c-4.971 0-9 4.478-9 10 0 5.521 4.029 10 9 10s9-4.479 9-10c0-5.522-4.029-10-9-10zm3.854 15.654c-.679.58-1.854.935-2.854 1.069v1.277h-2v-1.3c-1.044-.142-1.909-.3-2.588-.835-.942-.742-1.412-1.865-1.412-2.865h2.488c.081 0 .239.801.475 1.084.245.291.593.325 1.037.448v-3.405c-1.217-.281-2.065-.584-2.536-.91-.841-.575-1.261-1.476-1.261-2.7 0-1.117.411-2.045 1.234-2.784.628-.565 1.484-.912 2.563-1.046v-1.687h2v1.74c1 .149 1.676.613 2.3 1.076.939.697 1.6 1.184 1.645 3.184h-2.506c-.047-1-.549-1.432-1.172-1.748-.033-.016-.267-.193-.267-.207v3.143l.902.174c.959.226 1.846.528 2.324.905.744.588 1.032 1.437 1.032 2.547.002 1.14-.524 2.086-1.404 2.84z'></path></g>"
+				
+				var Marketing = "<svg fill="&IconColor&" viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'><path d='M14.25 2.1a1.25 1.25 0 0 0-1.17-.1L6.91 4.43a1.22 1.22 0 0 1-.46.09H2.5a1.25 1.25 0 0 0-1.25 1.25v.1H0v3h1.25V9a1.25 1.25 0 0 0 1.25 1.22L4 13.4a1.26 1.26 0 0 0 1.13.72h.63A1.25 1.25 0 0 0 7 12.87v-2.53l6.08 2.43a1.27 1.27 0 0 0 .47.09 1.29 1.29 0 0 0 .7-.22 1.25 1.25 0 0 0 .55-1V3.13a1.25 1.25 0 0 0-.55-1.03zm-8.5 3.67V9H2.5V5.77zm0 7.1h-.63l-1.23-2.65h1.86zm1.62-3.72A2.29 2.29 0 0 0 7 9V5.7a2.26 2.26 0 0 0 .37-.11l6.18-2.46v8.48zm7.46-3.03v2.5a1.25 1.25 0 0 0 0-2.5z'></path></g>"
+				
+				var Retail = "<svg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path d='M3 1L0 4V5C0 5 2 6 4 6C6 6 8 5 8 5C8 5 10 6 12 6C14 6 16 5 16 5V4L13 1H3Z' fill="&IconColor&"></path> <path fill-rule='evenodd' clip-rule='evenodd' d='M1 15V7.5187C1.81671 7.76457 2.88168 8 4 8C5.3025 8 6.53263 7.68064 7.38246 7.39737C7.60924 7.32177 7.81664 7.24612 8 7.17526C8.18337 7.24612 8.39076 7.32177 8.61754 7.39737C9.46737 7.68064 10.6975 8 12 8C13.1183 8 14.1833 7.76457 15 7.5187V15H7V10H4V15H1ZM12 10H10V13H12V10Z' fill="&IconColor&"></path> </g>"
+				
+				var Service = "<svg fill="&IconColor&" version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 496 496' xml:space='preserve'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <g> <g> <g> <path d='M482.344,264.968C491.024,256.288,496,244.272,496,232c0-12.272-4.976-24.288-13.656-32.968L416,132.688L340.688,208 l32,32L240,372.688l-32-32L132.688,416l66.344,66.344C207.712,491.024,219.728,496,232,496c12.272,0,24.288-4.976,32.968-13.656 l18.456-18.456C306.824,484.576,336.504,496,368,496c70.576,0,128-57.424,128-128c0-31.504-11.424-61.192-32.112-84.576 L482.344,264.968z M363.312,208L416,155.312L428.688,168L376,220.688L363.312,208z M155.312,416L208,363.312L220.688,376 L168,428.688L155.312,416z M271.832,452.848l-18.176,18.184C247.952,476.736,240.064,480,232,480 c-8.064,0-15.952-3.264-21.656-8.968L179.312,440L232,387.312l8,8L395.312,240l-8-8L440,179.312l31.032,31.032 C476.736,216.048,480,223.936,480,232c0,8.064-3.264,15.952-8.968,21.656l-18.176,18.176L271.832,452.848z M480,368 c0,61.76-50.24,112-112,112c-27.232,0-52.984-9.656-73.344-27.344l158-158C470.344,315.008,480,340.76,480,368z'></path> <path d='M208,336v-29.792c10.232-2.96,20.096-7.048,29.44-12.208l21.072,21.08l56.568-56.568L294,237.44 c5.168-9.344,9.248-19.2,12.208-29.44H336v-80h-29.792c-2.96-10.232-7.048-20.096-12.208-29.44l21.08-21.072L258.512,20.92 L237.44,42c-9.344-5.168-19.2-9.248-29.44-12.208V0h-80v29.792C117.768,32.752,107.904,36.84,98.56,42L77.488,20.92L20.92,77.488 L42,98.56c-5.168,9.344-9.248,19.2-12.208,29.44H0v80h29.792c2.96,10.232,7.048,20.096,12.208,29.44l-21.08,21.072l56.568,56.568 L98.56,294c9.344,5.168,19.2,9.248,29.44,12.208V336H208z M101.432,277.168l-5.376-3.28l-18.56,18.568l-33.944-33.944 l18.568-18.56l-3.28-5.376c-6.92-11.328-12.008-23.592-15.12-36.448L42.24,192H16v-48h26.24l1.48-6.128 c3.112-12.848,8.192-25.12,15.12-36.448l3.28-5.376l-18.568-18.56l33.944-33.944l18.56,18.568l5.376-3.28 c11.328-6.92,23.592-12.008,36.448-15.12L144,42.24V16h48v26.24l6.128,1.48c12.848,3.112,25.12,8.192,36.448,15.12l5.376,3.28 l18.56-18.568l33.944,33.944l-18.568,18.56l3.28,5.376c6.92,11.328,12.008,23.592,15.12,36.448l1.472,6.12H320v48h-26.24 l-1.48,6.128c-3.112,12.848-8.192,25.12-15.12,36.448l-3.28,5.376l18.568,18.56l-33.944,33.944l-18.56-18.568l-5.376,3.28 c-11.328,6.92-23.592,12.008-36.448,15.12L192,293.76V320h-48v-26.24l-6.128-1.48 C125.024,289.168,112.76,284.088,101.432,277.168z'></path> <path d='M256,168c0-48.52-39.48-88-88-88s-88,39.48-88,88s39.48,88,88,88S256,216.52,256,168z M96,168c0-39.704,32.296-72,72-72 s72,32.296,72,72s-32.296,72-72,72S96,207.704,96,168z'></path> <rect x='231.995' y='324.69' transform='matrix(-0.7071 0.7071 -0.7071 -0.7071 647.2864 403.8884)' width='16' height='22.624'></rect> <rect x='324.683' y='231.998' transform='matrix(-0.7071 -0.7071 0.7071 -0.7071 403.8752 647.2874)' width='22.624' height='16'></rect> </g> </g> </g> </g>"
+				
+				var Software = "<svg fill="&IconColor&" version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 256 241' enable-background='new 0 0 256 241' xml:space='preserve'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path d='M254,188V2H2v186h111v29H75v22h106v-22h-38v-29H254z M19,19h217v151H19L19,19z M129.227,67.814v-7.326l-7.679-1.297 c-0.567-2.51-1.557-4.862-2.891-6.977l4.514-6.345l-5.183-5.183l-6.345,4.514c-2.11-1.334-4.463-2.32-6.977-2.891l-1.292-7.675 h-7.331l-1.292,7.675c-2.515,0.572-4.867,1.557-6.977,2.891l-6.345-4.514l-5.183,5.183l4.514,6.345 c-1.334,2.115-2.324,4.467-2.891,6.977l-7.679,1.297v7.326l7.679,1.292c0.567,2.515,1.557,4.867,2.891,6.982l-4.514,6.345 l5.183,5.178l6.345-4.514c2.11,1.334,4.463,2.324,6.977,2.891l1.292,7.679h7.331l1.292-7.679c2.515-0.567,4.867-1.557,6.977-2.891 l6.345,4.514l5.183-5.178l-4.514-6.345c1.334-2.115,2.324-4.467,2.891-6.982L129.227,67.814z M99.705,75.8 c-6.429,0-11.644-5.216-11.644-11.649s5.216-11.649,11.644-11.649c6.433,0,11.649,5.216,11.649,11.649 C111.354,70.585,106.138,75.8,99.705,75.8z M180.239,109.829l8.949-5.554l-3.754-9.172l-10.275,2.313 c-1.939-2.77-4.354-5.232-7.191-7.255l2.4-10.254l-9.14-3.831l-5.629,8.899c-3.431-0.605-6.881-0.601-10.215-0.042l-5.554-8.949 l-9.172,3.754l2.313,10.275c-2.77,1.939-5.232,4.354-7.255,7.191l-10.254-2.4l-3.831,9.14l8.899,5.629 c-0.605,3.431-0.601,6.881-0.042,10.215l-8.949,5.554l3.754,9.172l10.275-2.313c1.939,2.77,4.354,5.232,7.191,7.255l-2.4,10.254 l9.14,3.831l5.629-8.899c3.431,0.605,6.881,0.601,10.215,0.042l5.554,8.948l9.172-3.754l-2.313-10.275 c2.77-1.939,5.232-4.354,7.255-7.191l10.254,2.4l3.831-9.14l-8.899-5.629C180.801,116.613,180.798,113.164,180.239,109.829z M164.892,120.9c-3.364,8.024-12.595,11.802-20.619,8.438s-11.802-12.595-8.438-20.619s12.595-11.802,20.619-8.438 S168.255,112.876,164.892,120.9z M91.746,119.725c0,2.982-2.417,5.399-5.399,5.399c-2.979,0-5.396-2.417-5.396-5.399 s2.417-5.399,5.396-5.399C89.328,114.326,91.746,116.743,91.746,119.725z M105.883,122.149v-4.848l-5.082-0.858 c-0.375-1.661-1.031-3.218-1.913-4.617l2.987-4.199l-3.43-3.43l-4.199,2.987c-1.397-0.883-2.953-1.535-4.617-1.913l-0.855-5.079 h-4.851l-0.855,5.079c-1.664,0.378-3.221,1.031-4.617,1.913l-4.199-2.987l-3.43,3.43l2.987,4.199 c-0.883,1.4-1.538,2.956-1.913,4.617l-5.082,0.858v4.848l5.082,0.855c0.375,1.664,1.031,3.221,1.913,4.62l-2.987,4.199l3.43,3.427 l4.199-2.987c1.397,0.883,2.953,1.538,4.617,1.913l0.855,5.082h4.851l0.855-5.082c1.664-0.375,3.221-1.031,4.617-1.913l4.199,2.987 l3.43-3.427l-2.987-4.199c0.883-1.4,1.538-2.956,1.913-4.62L105.883,122.149z'></path> </g>"
+				
+				var Technology = "<svg fill="&IconColor&" viewBox='0 0 1069 1069' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;' version='1.1' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:serif='http://www.serif.com/' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <rect height='1066.67' id='Chip-set' style='fill:none;' width='1066.67' x='1.397' y='0.245'></rect> <g> <path d='M688.577,148.161l-279.947,0l-0,-64.765c-0,-17.247 -14.003,-31.25 -31.25,-31.25c-17.248,0 -31.25,14.003 -31.25,31.25l-0,64.768c-52.094,0.29 -101.991,21.109 -138.847,57.966c-33.572,33.572 -53.838,77.963 -57.402,124.974l-65.332,0c-17.247,0 -31.25,14.003 -31.25,31.25c0,17.247 14.003,31.25 31.25,31.25l64.765,0l0,279.948l-64.765,-0c-17.247,-0 -31.25,14.002 -31.25,31.25c0,17.247 14.003,31.25 31.25,31.25l65.332,-0c3.564,47.011 23.83,91.402 57.402,124.974c36.856,36.857 86.753,57.676 138.847,57.965l-0,64.768c-0,17.248 14.002,31.25 31.25,31.25c17.247,0 31.25,-14.002 31.25,-31.25l-0,-64.764l279.947,-0l-0,64.764c-0,17.248 14.003,31.25 31.25,31.25c17.247,0 31.25,-14.002 31.25,-31.25l-0,-66.877c41.818,-6.159 80.852,-25.606 111.102,-55.856c33.572,-33.572 53.837,-77.963 57.401,-124.974l65.332,-0c17.248,-0 31.25,-14.003 31.25,-31.25c0,-17.248 -14.002,-31.25 -31.25,-31.25l-64.765,-0l0,-279.948l64.765,0c17.248,0 31.25,-14.003 31.25,-31.25c0,-17.247 -14.002,-31.25 -31.25,-31.25l-65.332,0c-3.564,-47.011 -23.829,-91.402 -57.401,-124.974c-30.25,-30.25 -69.284,-49.697 -111.102,-55.856l-0,-66.878c-0,-17.247 -14.003,-31.25 -31.25,-31.25c-17.247,0 -31.25,14.003 -31.25,31.25l-0,64.765Zm33.654,708.334l-375,-0c-35.915,-0 -70.359,-14.268 -95.754,-39.663c-25.396,-25.396 -39.663,-59.84 -39.663,-95.754c0,-113.06 0,-261.94 0,-375c0,-35.915 14.267,-70.359 39.663,-95.754c25.395,-25.396 59.839,-39.663 95.754,-39.663l374.999,0c35.915,0 70.359,14.267 95.755,39.663c25.395,25.395 39.662,59.839 39.662,95.754l0,375c0,35.914 -14.267,70.358 -39.662,95.754c-25.396,25.395 -59.84,39.663 -95.754,39.663Zm-364.584,-322.917c0,-0 0,29.825 0,62.5c0.001,63.283 51.301,114.583 114.584,114.583c39.191,0 85.809,0 125,0c63.282,0 114.583,-51.3 114.583,-114.583c0,-39.191 0,-85.809 0,-125c-0,-63.283 -51.301,-114.583 -114.583,-114.583c-32.675,-0 -62.5,-0 -62.5,-0c-17.248,-0 -31.25,14.002 -31.25,31.25c-0,17.247 14.002,31.25 31.25,31.25l62.498,-0c28.767,0 52.084,23.318 52.085,52.081c0,0.003 0,125.002 0,125.002c-0.001,28.765 -23.318,52.082 -52.082,52.083c-0.003,0 -125.001,0 -125.001,0c-28.765,-0.001 -52.083,-23.318 -52.084,-52.081c0,-0.004 0,-62.502 0,-62.502c0,-17.248 -14.002,-31.25 -31.25,-31.25c-17.247,-0 -31.25,14.002 -31.25,31.25Zm385.417,-241.407c18.254,0 33.073,14.82 33.073,33.074c0,18.253 -14.819,33.073 -33.073,33.073c-18.254,-0 -33.073,-14.82 -33.073,-33.073c-0,-18.254 14.819,-33.074 33.073,-33.074Z'></path> <path d='M920.147,346.078c0.001,-52.491 -20.851,-102.832 -57.968,-139.948c-37.117,-37.117 -87.458,-57.969 -139.949,-57.969c-113.059,0 -261.939,0 -374.999,0c-52.491,0 -102.832,20.852 -139.948,57.969c-37.117,37.116 -57.969,87.457 -57.969,139.948c0,113.06 0,261.94 0,375c-0,52.49 20.852,102.831 57.969,139.948c37.116,37.117 87.457,57.969 139.948,57.969c70.055,-0 147.677,-0 201.797,-0c52.491,-0 102.832,-20.852 139.949,-57.969c49.034,-49.034 124.168,-124.168 173.202,-173.202c37.117,-37.117 57.969,-87.458 57.968,-139.949l0,-201.797Zm-62.5,0l0,201.797c0,35.915 -14.267,70.359 -39.662,95.755c-49.035,49.034 -124.168,124.167 -173.202,173.202c-25.396,25.396 -59.84,39.663 -95.755,39.663c-54.12,-0 -131.742,-0 -201.797,-0c-35.915,-0 -70.359,-14.267 -95.754,-39.663c-25.396,-25.396 -39.663,-59.84 -39.663,-95.754c0,-113.06 0,-261.94 0,-375c0,-35.915 14.267,-70.359 39.663,-95.754c25.395,-25.396 59.839,-39.663 95.754,-39.663l374.999,0c35.915,0 70.359,14.267 95.755,39.663c25.395,25.395 39.662,59.839 39.662,95.754Zm-500,250c0.001,63.283 51.301,114.583 114.584,114.583c39.191,0 85.809,0 125,0c63.282,0 114.583,-51.3 114.583,-114.583c0,-39.191 0,-85.809 0,-125c-0,-63.283 -51.301,-114.583 -114.583,-114.583l-125,-0c-63.283,-0 -114.583,51.3 -114.584,114.583l0,125Zm62.5,0.002l0,-125.002c0.001,-28.765 23.319,-52.083 52.082,-52.083c0.003,-0 125.001,-0 125.001,-0c28.766,0 52.083,23.318 52.084,52.081c0,0.003 0,125.002 0,125.002c-0.001,28.765 -23.318,52.082 -52.082,52.083c-0.003,0 -125.001,0 -125.001,0c-28.765,-0.001 -52.083,-23.318 -52.084,-52.081Z' style='fill-opacity:0.5;'></path> </g> </g>"
+				
+				var Telecommunications = "<svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path d='M21.97 18.33C21.97 18.69 21.89 19.06 21.72 19.42C21.55 19.78 21.33 20.12 21.04 20.44C20.55 20.98 20.01 21.37 19.4 21.62C18.8 21.87 18.15 22 17.45 22C16.43 22 15.34 21.76 14.19 21.27C13.04 20.78 11.89 20.12 10.75 19.29C9.6 18.45 8.51 17.52 7.47 16.49C6.44 15.45 5.51 14.36 4.68 13.22C3.86 12.08 3.2 10.94 2.72 9.81C2.24 8.67 2 7.58 2 6.54C2 5.86 2.12 5.21 2.36 4.61C2.6 4 2.98 3.44 3.51 2.94C4.15 2.31 4.85 2 5.59 2C5.87 2 6.15 2.06 6.4 2.18C6.66 2.3 6.89 2.48 7.07 2.74L9.39 6.01C9.57 6.26 9.7 6.49 9.79 6.71C9.88 6.92 9.93 7.13 9.93 7.32C9.93 7.56 9.86 7.8 9.72 8.03C9.59 8.26 9.4 8.5 9.16 8.74L8.4 9.53C8.29 9.64 8.24 9.77 8.24 9.93C8.24 10.01 8.25 10.08 8.27 10.16C8.3 10.24 8.33 10.3 8.35 10.36C8.53 10.69 8.84 11.12 9.28 11.64C9.73 12.16 10.21 12.69 10.73 13.22C11.27 13.75 11.79 14.24 12.32 14.69C12.84 15.13 13.27 15.43 13.61 15.61C13.66 15.63 13.72 15.66 13.79 15.69C13.87 15.72 13.95 15.73 14.04 15.73C14.21 15.73 14.34 15.67 14.45 15.56L15.21 14.81C15.46 14.56 15.7 14.37 15.93 14.25C16.16 14.11 16.39 14.04 16.64 14.04C16.83 14.04 17.03 14.08 17.25 14.17C17.47 14.26 17.7 14.39 17.95 14.56L21.26 16.91C21.52 17.09 21.7 17.3 21.81 17.55C21.91 17.8 21.97 18.05 21.97 18.33Z' stroke="&IconColor&" stroke-width='1.5' stroke-miterlimit='10'></path> <path d='M18.5 9C18.5 8.4 18.03 7.48 17.33 6.73C16.69 6.04 15.84 5.5 15 5.5' stroke="&IconColor&" stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M22 9C22 5.13 18.87 2 15 2' stroke="&IconColor&" stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'></path> </g>"
+				RETURN
+				IF(
+				    ISINSCOPE('Clients'[Sector]), --Do not show icon in the totals
+				        IconCodePrefix&
+				        SWITCH(
+				            MIN('Clients'[Sector]),
+				                "Employment",Employment,
+				                "Entertainment",Entertainment,
+				                "Finance",Finance,
+				                "Medical",Health,
+				                "Marketing",Marketing,
+				                "Retail",Retail,
+				                "Services",Service,
+				                "Software",Software,
+				                "Technolgy",Technology,
+				                "Telecommunications",Telecommunications,
+				                Health)
+				        &IconCodeSuffix,
+				        BLANK()
+				)
+			displayFolder: Display rules
+			lineageTag: fbb62121-a590-41b0-836c-83d704869e50
+			dataCategory: ImageUrl
+
+		measure 'Average LTV' = ```
+				
+				var TotalSales = 
+				    CALCULATE(
+				        [Sum of sales],
+				        REMOVEFILTERS('Clients'))
+				var TotalClients = 
+				    CALCULATE(
+				        DISTINCTCOUNTNOBLANK('Clients'[id]),
+				        REMOVEFILTERS('Clients')
+				    )
+				RETURN
+				TotalSales/TotalClients
+				```
+			displayFolder: Main calculations
+			lineageTag: 82188e2c-248e-4f07-be6d-341454f0739a
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Sum of client''s revenue' = SUM('Clients'[Revenue])
+			displayFolder: Main calculations
+			lineageTag: b1dcd1b2-630d-4a99-892f-ba5ca55b1def
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Amount of clients' = ```
+				
+				    DISTINCTCOUNTNOBLANK('Clients'[id])
+				```
+			formatString: 0
+			displayFolder: Main calculations
+			lineageTag: 5f6ed776-d519-4e5f-9782-569c152f0d72
+
+		measure 'Product sales amount plan' = SUM('Product Sales Plans'[Plan])
+			displayFolder: Plan
+			lineageTag: db2c626d-10d8-4a7f-add5-2dd33fbf5251
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Product sales amount plan completion' = DIVIDE([Amount of sales],[Product sales amount plan])
+			formatString: 0.00%;-0.00%;0.00%
+			displayFolder: Plan
+			lineageTag: dbab5c47-b2ae-48bd-ba5a-bcc3cd7cf87f
+
+		measure 'Amount of deals' =
+				
+				CALCULATE(
+				    DISTINCTCOUNTNOBLANK('Deals'[id])
+				)
+			formatString: #,0
+			displayFolder: Main calculations
+			lineageTag: 5b0d9c14-38e4-4521-bcee-e4b84f40fc61
+
+		measure 'Product plan completion background' =
+				
+				SWITCH(
+				    TRUE(),
+				    [Product sales amount plan completion]>=0&&[Product sales amount plan completion]<=0.6,"bad",
+				    [Product sales amount plan completion]>0.6&&[Product sales amount plan completion]<=0.8,"neutral",
+				    [Product sales amount plan completion]>0.8,"good"
+				)
+			displayFolder: Display rules
+			lineageTag: 21299560-60d9-4a8c-84fc-a68e58d4242e
+
+		measure 'Last dataset updated date' = MAX('Dataset updated date'[Dataset updated date])
+			formatString: General Date
+			lineageTag: 6d646cbd-8bfb-4a4f-bcbc-51b013d10c0c
+
+		measure 'Selected period level' =
+				
+				var Prefix = "previous "
+				RETURN
+				SWITCH(
+				    TRUE(),
+				    ISFILTERED('Calendar'[Month]),Prefix&"month",
+				    ISFILTERED('Calendar'[Quarter]),Prefix&"quarter",
+				    ISFILTERED('Calendar'[Year]),Prefix&"year",BLANK())
+			displayFolder: KPI titles
+			lineageTag: 4ffa2a68-6995-42f3-b4db-ab94c0274db0
+
+		measure 'Sum of sales comparison title' = "Sum of sales and comparison against "&[Selected period level]
+			displayFolder: KPI titles
+			lineageTag: 8ccec8f1-ce32-4c51-b7a2-afbbe2326653
+
+		measure 'Amount of sales comparison title' = "Amount of sales and comparison against "&[Selected period level]
+			displayFolder: KPI titles
+			lineageTag: 5086d73f-b934-4a31-b50a-19425b9d6ffe
+
+		measure 'Average sum of sale comparison title' = "Average sum of sale and comparison against "&[Selected period level]
+			displayFolder: KPI titles
+			lineageTag: 82a62dd7-4295-4c4e-b03e-7dcb9f9760fb
+
+		measure 'Conversion rate comparison title' = "Conversion rate and comparison against "&[Selected period level]
+			displayFolder: KPI titles
+			lineageTag: 8197ad58-43d3-489d-9057-f64fb127ebf9
+
+		measure 'Product plan completion display values' = [Amount of sales]&" "&FORMAT([Product sales amount plan completion],"Percent")
+			displayFolder: Display rules
+			lineageTag: 195f5378-20d4-42d0-aee4-d3fa9ef4b403
+
+		measure 'Max plan completion' = 1
+			formatString: 0%;-0%;0%
+			lineageTag: 7bbc2ed2-1d24-4ee8-81a7-30376f162935
+
+		partition Measure = m
+			mode: import
+			source =
+					let
+					    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Столбец1 = _t]),
+					    #"Removed Columns" = Table.RemoveColumns(Source,{"Столбец1"})
+					in
+					    #"Removed Columns"
+
+		annotation PBI_NavigationStepName = Навигация
+
+		annotation PBI_ResultType = Table
+

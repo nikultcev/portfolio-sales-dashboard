@@ -172,16 +172,6 @@
                     }
                   ],
                   "isToggled": true
-                },
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Q4'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
                 }
               ]
             }

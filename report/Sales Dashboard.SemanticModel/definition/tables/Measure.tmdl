@@ -310,28 +310,28 @@ table Measure
 
 	measure 'Change of sum of sales, background' = ```
 			
-			    IF([Change of sum of sales, %]>0,"#a6d3b8","#e8b2ac")
+			    IF([Change of sum of sales, %]>0,"good","bad")
 			```
 		displayFolder: Display rules
 		lineageTag: ee3d52ee-865f-4ef3-b91b-ba8950da3b53
 
 	measure 'Change of amount of sales, background' = ```
 			
-			    IF([Change of amount of sales, %]>0,"#a6d3b8","#e8b2ac")
+			    IF([Change of amount of sales, %]>0,"good","bad")
 			```
 		displayFolder: Display rules
 		lineageTag: 32ccfbf7-e56d-4fdd-97ac-f3fa9ef52f01
 
 	measure 'Change of average sale sum, background' = ```
 			
-			    IF([Change of average sale sum, %]>0,"#a6d3b8","#e8b2ac")
+			    IF([Change of average sale sum, %]>0,"good","bad")
 			```
 		displayFolder: Display rules
 		lineageTag: 9eb571d8-887b-45e0-9352-5afbe2b1d3b6
 
 	measure 'Change of conversion rate, background' = ```
 			
-			    IF([Change of conversion rate, %]>0,"#a6d3b8","#e8b2ac")
+			    IF([Change of conversion rate, %]>0,"good","bad")
 			```
 		displayFolder: Display rules
 		lineageTag: 695bed00-a5e5-463e-b110-e27a4f1b332e
@@ -362,9 +362,9 @@ table Measure
 			
 			SWITCH(
 			    TRUE(),
-			    [Team manager plan completion]>=0&&[Team manager plan completion]<=0.6,"#e8b2ac",
-			    [Team manager plan completion]>0.6&&[Team manager plan completion]<=0.8,"#f6c89d",
-			    [Team manager plan completion]>0.8,"#a6d3b8"
+			    [Team manager plan completion]>=0&&[Team manager plan completion]<=0.6,"bad",
+			    [Team manager plan completion]>0.6&&[Team manager plan completion]<=0.8,"neutral",
+			    [Team manager plan completion]>0.8,"good"
 			)
 		displayFolder: Display rules
 		lineageTag: b25519e1-7e8a-410f-a92b-4a4693d93790
@@ -475,9 +475,9 @@ table Measure
 			
 			SWITCH(
 			    TRUE(),
-			    [Product sales amount plan completion]>=0&&[Product sales amount plan completion]<=0.6,"#e8b2ac",
-			    [Product sales amount plan completion]>0.6&&[Product sales amount plan completion]<=0.8,"#f6c89d",
-			    [Product sales amount plan completion]>0.8,"#a6d3b8"
+			    [Product sales amount plan completion]>=0&&[Product sales amount plan completion]<=0.6,"bad",
+			    [Product sales amount plan completion]>0.6&&[Product sales amount plan completion]<=0.8,"neutral",
+			    [Product sales amount plan completion]>0.8,"good"
 			)
 		displayFolder: Display rules
 		lineageTag: 21299560-60d9-4a8c-84fc-a68e58d4242e
