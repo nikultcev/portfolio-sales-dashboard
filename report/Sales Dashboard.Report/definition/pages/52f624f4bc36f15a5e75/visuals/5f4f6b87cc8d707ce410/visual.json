@@ -435,7 +435,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sum of sales by date and comparison to previous period'"
+                  "Value": "'Sum of sales by date'"
                 }
               }
             },
