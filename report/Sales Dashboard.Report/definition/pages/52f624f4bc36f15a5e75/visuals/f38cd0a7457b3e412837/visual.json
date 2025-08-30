@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "09de7a54084406705e60",
+  "name": "f38cd0a7457b3e412837",
   "position": {
-    "x": 829.1552947857088,
-    "y": 88.735649137391008,
-    "z": 2000,
-    "height": 66.823663253697392,
-    "width": 253.30830489192262,
-    "tabOrder": 5000
+    "x": 781.25,
+    "y": 82.5,
+    "z": 15002,
+    "height": 71.25,
+    "width": 243.75,
+    "tabOrder": 15002
   },
   "visual": {
     "visualType": "slicer",
@@ -148,7 +148,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Client Country'"
+                  "Value": "'Client country'"
                 }
               }
             },
@@ -175,7 +175,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "50D"
                 }
               }
             }
@@ -195,7 +195,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "20D"
                 }
               }
             },
@@ -203,8 +203,9 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#F5F4F1'"
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
                     }
                   }
                 }
@@ -226,11 +227,6 @@
           }
         }
       ]
-    },
-    "syncGroup": {
-      "groupName": "Country",
-      "fieldChanges": true,
-      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   },

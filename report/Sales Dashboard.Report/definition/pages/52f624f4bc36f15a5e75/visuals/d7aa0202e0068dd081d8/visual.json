@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "549ebfef90b01890275a",
+  "name": "d7aa0202e0068dd081d8",
   "position": {
-    "x": 34.188850967007964,
-    "y": 88.580204778157,
-    "z": 7000,
-    "height": 65.269624573378848,
-    "width": 254.86234357224122,
-    "tabOrder": 2000
+    "x": 22.5,
+    "y": 82.5,
+    "z": 15000,
+    "height": 71.25,
+    "width": 253.75,
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "slicer",
@@ -172,6 +172,16 @@
                     }
                   ],
                   "isToggled": true
+                },
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Q4'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
                 }
               ]
             }
@@ -220,16 +230,6 @@
                               },
                               "Property": "Year"
                             }
-                          },
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "c"
-                                }
-                              },
-                              "Property": "Quarter"
-                            }
                           }
                         ],
                         "Values": [
@@ -237,11 +237,6 @@
                             {
                               "Literal": {
                                 "Value": "2017L"
-                              }
-                            },
-                            {
-                              "Literal": {
-                                "Value": "'Q2'"
                               }
                             }
                           ]
@@ -265,21 +260,6 @@
                               },
                               "Level": "Year"
                             }
-                          },
-                          {
-                            "HierarchyLevel": {
-                              "Expression": {
-                                "Hierarchy": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Calendar"
-                                    }
-                                  },
-                                  "Hierarchy": "Date Hierarchy"
-                                }
-                              },
-                              "Level": "Quarter"
-                            }
                           }
                         ],
                         "decomposedIdentities": {
@@ -290,15 +270,6 @@
                                   {
                                     "Literal": {
                                       "Value": "2017L"
-                                    }
-                                  }
-                                ]
-                              },
-                              {
-                                "1": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'Q2'"
                                     }
                                   }
                                 ]
@@ -317,25 +288,12 @@
                                   "Property": "Year"
                                 }
                               }
-                            },
-                            {
-                              "value": {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Calendar"
-                                    }
-                                  },
-                                  "Property": "Quarter"
-                                }
-                              }
                             }
                           ]
                         },
                         "valueMap": [
                           {
-                            "0": "2017",
-                            "1": "Q2"
+                            "0": "2017"
                           }
                         ]
                       }
@@ -455,7 +413,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "50D"
                 }
               }
             }
@@ -475,7 +433,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "20D"
                 }
               }
             },
@@ -485,7 +443,7 @@
                   "expr": {
                     "ThemeDataColor": {
                       "ColorId": 0,
-                      "Percent": -0.1
+                      "Percent": 0
                     }
                   }
                 }

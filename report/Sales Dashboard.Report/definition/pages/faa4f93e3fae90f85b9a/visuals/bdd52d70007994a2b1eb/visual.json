@@ -6,8 +6,7 @@
     "y": 168.81698113207549,
     "z": 3000,
     "height": 582.48301886792456,
-    "width": 355.6754716981132,
-    "tabOrder": 1000
+    "width": 355.6754716981132
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -225,7 +224,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top 10 clients by total sales'"
+                  "Value": "'Top 10 clients by total revenue'"
                 }
               }
             }

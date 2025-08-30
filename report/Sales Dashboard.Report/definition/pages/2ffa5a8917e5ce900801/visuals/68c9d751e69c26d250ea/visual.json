@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 582.5,
     "width": 611.25,
-    "tabOrder": 6000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -61,7 +61,8 @@
                 }
               },
               "queryRef": "Measure.Sum of sales",
-              "nativeQueryRef": "Sum of sales"
+              "nativeQueryRef": "Revenue",
+              "displayName": "Revenue"
             },
             {
               "field": {

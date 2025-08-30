@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "49b6443955dd036119bb",
+  "name": "334af5306b413911a996",
   "position": {
-    "x": 298.37542662116044,
-    "y": 88.580204778157,
-    "z": 5000,
-    "height": 65.269624573378848,
-    "width": 253.30830489192262,
-    "tabOrder": 3000
+    "x": 276.19945105215004,
+    "y": 82.484903934126256,
+    "z": 15001,
+    "height": 71.236962488563576,
+    "width": 252.45379688929552,
+    "tabOrder": 15001
   },
   "visual": {
     "visualType": "slicer",
@@ -190,7 +190,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "50D"
                 }
               }
             }
@@ -210,7 +210,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "20D"
                 }
               }
             },
@@ -220,7 +220,7 @@
                   "expr": {
                     "ThemeDataColor": {
                       "ColorId": 0,
-                      "Percent": -0.1
+                      "Percent": 0
                     }
                   }
                 }
@@ -243,25 +243,20 @@
         }
       ]
     },
-    "syncGroup": {
-      "groupName": "Product line",
-      "fieldChanges": true,
-      "filterChanges": true
-    },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
     "filters": [
       {
-        "name": "e98c3357085864730a76",
+        "name": "7306b6ed370a30562085",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Products"
+                "Entity": "Clients"
               }
             },
-            "Property": "Product line"
+            "Property": "Country"
           }
         },
         "type": "Categorical",
@@ -269,8 +264,8 @@
           "Version": 2,
           "From": [
             {
-              "Name": "p",
-              "Entity": "Products",
+              "Name": "c",
+              "Entity": "Clients",
               "Type": 0
             }
           ],
@@ -285,10 +280,10 @@
                           "Column": {
                             "Expression": {
                               "SourceRef": {
-                                "Source": "p"
+                                "Source": "c"
                               }
                             },
-                            "Property": "Product line"
+                            "Property": "Country"
                           }
                         }
                       ],
@@ -308,6 +303,7 @@
             }
           ]
         },
+        "howCreated": "User",
         "objects": {
           "general": [
             {

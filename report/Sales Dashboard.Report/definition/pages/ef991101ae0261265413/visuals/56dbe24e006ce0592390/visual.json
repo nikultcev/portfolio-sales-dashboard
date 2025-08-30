@@ -6,8 +6,7 @@
     "y": 81.25,
     "z": 4000,
     "height": 72.5,
-    "width": 253.75,
-    "tabOrder": 1000
+    "width": 253.75
   },
   "visual": {
     "visualType": "slicer",
@@ -220,16 +219,6 @@
                               },
                               "Property": "Year"
                             }
-                          },
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "c"
-                                }
-                              },
-                              "Property": "Quarter"
-                            }
                           }
                         ],
                         "Values": [
@@ -237,11 +226,6 @@
                             {
                               "Literal": {
                                 "Value": "2017L"
-                              }
-                            },
-                            {
-                              "Literal": {
-                                "Value": "'Q2'"
                               }
                             }
                           ]
@@ -265,21 +249,6 @@
                               },
                               "Level": "Year"
                             }
-                          },
-                          {
-                            "HierarchyLevel": {
-                              "Expression": {
-                                "Hierarchy": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Calendar"
-                                    }
-                                  },
-                                  "Hierarchy": "Date Hierarchy"
-                                }
-                              },
-                              "Level": "Quarter"
-                            }
                           }
                         ],
                         "decomposedIdentities": {
@@ -290,15 +259,6 @@
                                   {
                                     "Literal": {
                                       "Value": "2017L"
-                                    }
-                                  }
-                                ]
-                              },
-                              {
-                                "1": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'Q2'"
                                     }
                                   }
                                 ]
@@ -317,25 +277,12 @@
                                   "Property": "Year"
                                 }
                               }
-                            },
-                            {
-                              "value": {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Calendar"
-                                    }
-                                  },
-                                  "Property": "Quarter"
-                                }
-                              }
                             }
                           ]
                         },
                         "valueMap": [
                           {
-                            "0": "2017",
-                            "1": "Q2"
+                            "0": "2017"
                           }
                         ]
                       }

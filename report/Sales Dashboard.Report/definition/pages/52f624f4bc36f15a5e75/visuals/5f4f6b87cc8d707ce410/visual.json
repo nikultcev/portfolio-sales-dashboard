@@ -4,10 +4,9 @@
   "position": {
     "x": 451.819184123484,
     "y": 433.74641675854464,
-    "z": 6000,
+    "z": 2000,
     "height": 320.79162072767364,
-    "width": 888.57772877618528,
-    "tabOrder": 1000
+    "width": 888.57772877618528
   },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
@@ -33,26 +32,6 @@
               },
               "queryRef": "Calendar.Date Hierarchy.Year",
               "nativeQueryRef": "Date Hierarchy Year",
-              "active": true
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Calendar"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
-                    }
-                  },
-                  "Level": "Quarter"
-                }
-              },
-              "queryRef": "Calendar.Date Hierarchy.Quarter",
-              "nativeQueryRef": "Date Hierarchy Quarter",
               "active": true
             },
             {
@@ -111,7 +90,8 @@
                 }
               },
               "queryRef": "Measure.Sum of sales",
-              "nativeQueryRef": "Sum of sales"
+              "nativeQueryRef": "Revenue",
+              "displayName": "Revenue"
             }
           ]
         },
@@ -129,7 +109,8 @@
                 }
               },
               "queryRef": "Measure.Change of sum of sales, %",
-              "nativeQueryRef": "Change of sum of sales, %"
+              "nativeQueryRef": "Change of revenue, %",
+              "displayName": "Change of revenue, %"
             }
           ]
         }
@@ -234,18 +215,6 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 6,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
                       "ColorId": 0,
                       "Percent": 0
                     }
@@ -257,6 +226,13 @@
               "expr": {
                 "Literal": {
                   "Value": "8D"
+                }
+              }
+            },
+            "enableBackground": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -297,6 +273,36 @@
           "selector": {
             "metadata": "Measure.Sum of sales"
           }
+        },
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Change of sum of sales, background"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Measure.Change of sum of sales, %"
+          }
         }
       ],
       "lineStyles": [
@@ -314,7 +320,7 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 5,
+                      "ColorId": 6,
                       "Percent": 0
                     }
                   }
@@ -435,7 +441,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sum of sales by date'"
+                  "Value": "'Revenue by date'"
                 }
               }
             },

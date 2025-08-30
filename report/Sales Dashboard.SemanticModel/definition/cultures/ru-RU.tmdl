@@ -1766,6 +1766,16 @@ cultureInfo ru-RU
 			          "change of sum of sales, %": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Change of revenue, %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -2053,6 +2063,16 @@ cultureInfo ru-RU
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -3482,7 +3502,7 @@ cultureInfo ru-RU
 			        }
 			      ]
 			    },
-			    "measure.amount_of_successful_sales_for_previous_period": {
+			    "measure.amount_of_sales_for_previous_period": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Measure",
@@ -3492,7 +3512,7 @@ cultureInfo ru-RU
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "amount of successful sales for previous period": {
+			          "amount of sales for previous period": {
 			            "State": "Generated"
 			          }
 			        }
@@ -9017,10 +9037,196 @@ cultureInfo ru-RU
 			        }
 			      ],
 			      "SemanticType": "Time"
+			    },
+			    "calendar.last_12_month": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Last 12 months"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "last 12 month": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "12 month": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "last 12 mth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "12 mth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "end 12 month": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "final 12 month": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "closing 12 month": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "concluding 12 month": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "finishing 12 month": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "former 12 month": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "latest 12 month": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "latter 12 month": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "measure.change_of_sum_of_sales_reference": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measure",
+			          "ConceptualProperty": "Change of sum of sales, reference"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "change of sum of sales, reference": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "measure.change_of_amount_of_sales_reference": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measure",
+			          "ConceptualProperty": "Change of amount of sales, reference"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "change of amount of sales, reference": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "measure.change_of_conversion_rate_reference": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measure",
+			          "ConceptualProperty": "Change of conversion rate, reference"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "change of conversion rate, reference": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "measure.change_of_average_sale_sum_reference": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Measure",
+			          "ConceptualProperty": "Change of average sale sum, reference"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "change of average sale sum, reference": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "deal_has_calendar": {
+			    "deal_has_product": {
 			      "Binding": {
 			        "ConceptualEntity": "Deals"
 			      },
@@ -9031,9 +9237,9 @@ cultureInfo ru-RU
 			            "Entity": "deal"
 			          }
 			        },
-			        "calendar": {
+			        "product": {
 			          "Target": {
-			            "Entity": "calendar"
+			            "Entity": "product"
 			          }
 			        }
 			      },
@@ -9044,17 +9250,17 @@ cultureInfo ru-RU
 			              "Role": "deal"
 			            },
 			            "Object": {
-			              "Role": "calendar"
+			              "Role": "product"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "deals_have_calendars"
+			          "ID": "deals_have_products"
 			        },
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "calendar"
+			              "Role": "product"
 			            },
 			            "Object": {
 			              "Role": "deal"
@@ -9062,7 +9268,304 @@ cultureInfo ru-RU
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "calendars_have_deals"
+			          "ID": "products_have_deals"
+			        }
+			      ]
+			    },
+			    "deal_has_measure_change_of_average_sale_sum_reference": {
+			      "Binding": {
+			        "ConceptualEntity": "Deals"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "deal": {
+			          "Target": {
+			            "Entity": "deal"
+			          }
+			        },
+			        "measure.change_of_average_sale_sum_reference": {
+			          "Target": {
+			            "Entity": "measure.change_of_average_sale_sum_reference"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "deal"
+			            },
+			            "Object": {
+			              "Role": "measure.change_of_average_sale_sum_reference"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "deals_have_change_of_average_sale_sum_reference"
+			        }
+			      ]
+			    },
+			    "calendar_has_measure_change_of_average_sale_sum_reference": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendar": {
+			          "Target": {
+			            "Entity": "calendar"
+			          }
+			        },
+			        "measure.change_of_average_sale_sum_reference": {
+			          "Target": {
+			            "Entity": "measure.change_of_average_sale_sum_reference"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendar"
+			            },
+			            "Object": {
+			              "Role": "measure.change_of_average_sale_sum_reference"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendars_have_change_of_average_sale_sum_reference"
+			        }
+			      ]
+			    },
+			    "deal_has_measure_change_of_conversion_rate_reference": {
+			      "Binding": {
+			        "ConceptualEntity": "Deals"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "deal": {
+			          "Target": {
+			            "Entity": "deal"
+			          }
+			        },
+			        "measure.change_of_conversion_rate_reference": {
+			          "Target": {
+			            "Entity": "measure.change_of_conversion_rate_reference"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "deal"
+			            },
+			            "Object": {
+			              "Role": "measure.change_of_conversion_rate_reference"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "deals_have_change_of_conversion_rate_reference"
+			        }
+			      ]
+			    },
+			    "calendar_has_measure_change_of_conversion_rate_reference": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendar": {
+			          "Target": {
+			            "Entity": "calendar"
+			          }
+			        },
+			        "measure.change_of_conversion_rate_reference": {
+			          "Target": {
+			            "Entity": "measure.change_of_conversion_rate_reference"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendar"
+			            },
+			            "Object": {
+			              "Role": "measure.change_of_conversion_rate_reference"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendars_have_change_of_conversion_rate_reference"
+			        }
+			      ]
+			    },
+			    "deal_has_measure_change_of_amount_of_sales_reference": {
+			      "Binding": {
+			        "ConceptualEntity": "Deals"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "deal": {
+			          "Target": {
+			            "Entity": "deal"
+			          }
+			        },
+			        "measure.change_of_amount_of_sales_reference": {
+			          "Target": {
+			            "Entity": "measure.change_of_amount_of_sales_reference"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "deal"
+			            },
+			            "Object": {
+			              "Role": "measure.change_of_amount_of_sales_reference"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "deals_have_change_of_amount_of_sales_reference"
+			        }
+			      ]
+			    },
+			    "calendar_has_measure_change_of_amount_of_sales_reference": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendar": {
+			          "Target": {
+			            "Entity": "calendar"
+			          }
+			        },
+			        "measure.change_of_amount_of_sales_reference": {
+			          "Target": {
+			            "Entity": "measure.change_of_amount_of_sales_reference"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendar"
+			            },
+			            "Object": {
+			              "Role": "measure.change_of_amount_of_sales_reference"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendars_have_change_of_amount_of_sales_reference"
+			        }
+			      ]
+			    },
+			    "deal_has_measure_change_of_sum_of_sales_reference": {
+			      "Binding": {
+			        "ConceptualEntity": "Deals"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "deal": {
+			          "Target": {
+			            "Entity": "deal"
+			          }
+			        },
+			        "measure.change_of_sum_of_sales_reference": {
+			          "Target": {
+			            "Entity": "measure.change_of_sum_of_sales_reference"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "deal"
+			            },
+			            "Object": {
+			              "Role": "measure.change_of_sum_of_sales_reference"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "deals_have_change_of_sum_of_sales_reference"
+			        }
+			      ]
+			    },
+			    "calendar_has_measure_change_of_sum_of_sales_reference": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendar": {
+			          "Target": {
+			            "Entity": "calendar"
+			          }
+			        },
+			        "measure.change_of_sum_of_sales_reference": {
+			          "Target": {
+			            "Entity": "measure.change_of_sum_of_sales_reference"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendar"
+			            },
+			            "Object": {
+			              "Role": "measure.change_of_sum_of_sales_reference"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendars_have_change_of_sum_of_sales_reference"
+			        }
+			      ]
+			    },
+			    "calendar_has_last_12_month": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendar": {
+			          "Target": {
+			            "Entity": "calendar"
+			          }
+			        },
+			        "calendar.last_12_month": {
+			          "Target": {
+			            "Entity": "calendar.last_12_month"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendar"
+			            },
+			            "Object": {
+			              "Role": "calendar.last_12_month"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendars_have_last_12_months"
 			        }
 			      ]
 			    },
@@ -11367,7 +11870,7 @@ cultureInfo ru-RU
 			        }
 			      ]
 			    },
-			    "deal_has_measure_amount_of_successful_sales_for_previous_period": {
+			    "deal_has_measure_amount_of_sales_for_previous_period": {
 			      "Binding": {
 			        "ConceptualEntity": "Deals"
 			      },
@@ -11378,9 +11881,9 @@ cultureInfo ru-RU
 			            "Entity": "deal"
 			          }
 			        },
-			        "measure.amount_of_successful_sales_for_previous_period": {
+			        "measure.amount_of_sales_for_previous_period": {
 			          "Target": {
-			            "Entity": "measure.amount_of_successful_sales_for_previous_period"
+			            "Entity": "measure.amount_of_sales_for_previous_period"
 			          }
 			        }
 			      },
@@ -11391,16 +11894,16 @@ cultureInfo ru-RU
 			              "Role": "deal"
 			            },
 			            "Object": {
-			              "Role": "measure.amount_of_successful_sales_for_previous_period"
+			              "Role": "measure.amount_of_sales_for_previous_period"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "deals_have_amount_of_successful_sales_for_previous_period"
+			          "ID": "deals_have_amount_of_sales_for_previous_period"
 			        }
 			      ]
 			    },
-			    "calendar_has_measure_amount_of_successful_sales_for_previous_period": {
+			    "calendar_has_measure_amount_of_sales_for_previous_period": {
 			      "Binding": {
 			        "ConceptualEntity": "Calendar"
 			      },
@@ -11411,9 +11914,9 @@ cultureInfo ru-RU
 			            "Entity": "calendar"
 			          }
 			        },
-			        "measure.amount_of_successful_sales_for_previous_period": {
+			        "measure.amount_of_sales_for_previous_period": {
 			          "Target": {
-			            "Entity": "measure.amount_of_successful_sales_for_previous_period"
+			            "Entity": "measure.amount_of_sales_for_previous_period"
 			          }
 			        }
 			      },
@@ -11424,12 +11927,12 @@ cultureInfo ru-RU
 			              "Role": "calendar"
 			            },
 			            "Object": {
-			              "Role": "measure.amount_of_successful_sales_for_previous_period"
+			              "Role": "measure.amount_of_sales_for_previous_period"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "calendars_have_amount_of_successful_sales_for_previous_period"
+			          "ID": "calendars_have_amount_of_sales_for_previous_period"
 			        }
 			      ]
 			    },
@@ -11694,39 +12197,6 @@ cultureInfo ru-RU
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "calendars_have_sum_of_sales_for_previous_period"
-			        }
-			      ]
-			    },
-			    "calendar_has_текущий_период": {
-			      "Binding": {
-			        "ConceptualEntity": "Calendar"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "calendar": {
-			          "Target": {
-			            "Entity": "calendar"
-			          }
-			        },
-			        "calendar.текущий_период": {
-			          "Target": {
-			            "Entity": "calendar.текущий_период"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendar"
-			            },
-			            "Object": {
-			              "Role": "calendar.текущий_период"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "calendars_have_текущий_период"
 			        }
 			      ]
 			    },
@@ -14004,52 +14474,6 @@ cultureInfo ru-RU
 			        }
 			      ]
 			    },
-			    "deal_has_product": {
-			      "Binding": {
-			        "ConceptualEntity": "Deals"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "deal": {
-			          "Target": {
-			            "Entity": "deal"
-			          }
-			        },
-			        "product": {
-			          "Target": {
-			            "Entity": "product"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "deal"
-			            },
-			            "Object": {
-			              "Role": "product"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "deals_have_products"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "product"
-			            },
-			            "Object": {
-			              "Role": "deal"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "products_have_deals"
-			        }
-			      ]
-			    },
 			    "deal_has_client": {
 			      "Binding": {
 			        "ConceptualEntity": "Deals"
@@ -14139,6 +14563,52 @@ cultureInfo ru-RU
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "salesmen_have_deals"
+			        }
+			      ]
+			    },
+			    "deal_has_calendar": {
+			      "Binding": {
+			        "ConceptualEntity": "Deals"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "deal": {
+			          "Target": {
+			            "Entity": "deal"
+			          }
+			        },
+			        "calendar": {
+			          "Target": {
+			            "Entity": "calendar"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "deal"
+			            },
+			            "Object": {
+			              "Role": "calendar"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "deals_have_calendars"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendar"
+			            },
+			            "Object": {
+			              "Role": "deal"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendars_have_deals"
 			        }
 			      ]
 			    },
@@ -14279,51 +14749,6 @@ cultureInfo ru-RU
 			        }
 			      ]
 			    },
-			    "product_sales_plan_has_calendar": {
-			      "Binding": {
-			        "ConceptualEntity": "Product Sales Plans"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "product_sales_plan": {
-			          "Target": {
-			            "Entity": "product_sales_plan"
-			          }
-			        },
-			        "calendar": {
-			          "Target": {
-			            "Entity": "calendar"
-			          },
-			          "Nouns": [
-			            {
-			              "year-month": {
-			                "State": "Generated"
-			              }
-			            },
-			            {
-			              "year month": {
-			                "State": "Generated"
-			              }
-			            }
-			          ]
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "product_sales_plan"
-			            },
-			            "Object": {
-			              "Role": "calendar"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "product_sales_plans_have_calendars"
-			        }
-			      ]
-			    },
 			    "product_sales_plan_has_product": {
 			      "Binding": {
 			        "ConceptualEntity": "Product Sales Plans"
@@ -14367,6 +14792,51 @@ cultureInfo ru-RU
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "products_have_product_sales_plans"
+			        }
+			      ]
+			    },
+			    "product_sales_plan_has_calendar": {
+			      "Binding": {
+			        "ConceptualEntity": "Product Sales Plans"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "product_sales_plan": {
+			          "Target": {
+			            "Entity": "product_sales_plan"
+			          }
+			        },
+			        "calendar": {
+			          "Target": {
+			            "Entity": "calendar"
+			          },
+			          "Nouns": [
+			            {
+			              "year-month": {
+			                "State": "Generated"
+			              }
+			            },
+			            {
+			              "year month": {
+			                "State": "Generated"
+			              }
+			            }
+			          ]
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "product_sales_plan"
+			            },
+			            "Object": {
+			              "Role": "calendar"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "product_sales_plans_have_calendars"
 			        }
 			      ]
 			    },

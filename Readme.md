@@ -10,13 +10,11 @@ Features:
 - KPIs comparison to previous selected period
 - Plan completion tracking by manager and product
 - SVG icons showing client company sector
-- Time to close a deal bar chart
 
 <p align="center">
     <img src="images/page_02.png" height="250">
     <img src="images/page_03.png" height="250">
     <img src="images/page_04.png" height="250">
-    <img src="images/page_05.png" height="250">
 </p>
 
 # Report internal structure

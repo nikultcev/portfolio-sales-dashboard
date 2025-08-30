@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "5d2077e0794e32c8d0e2",
   "position": {
-    "x": 22.578512396694212,
+    "x": 22.578512396694208,
     "y": 316.12557560922364,
-    "z": 12000,
-    "height": 95.958677685950416,
+    "z": 7000,
+    "height": 95.9586776859504,
     "width": 280.3498622589532,
-    "tabOrder": 11000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "areaChart",
@@ -170,58 +170,6 @@
   },
   "filterConfig": {
     "filters": [
-      {
-        "name": "9671207c00d5a0987c7d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Measure"
-              }
-            },
-            "Property": "Sum of sales"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "01e463cab38ba065121b",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Calendar"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Year"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "1e6e997dedd763ce5cd8",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Calendar"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Month"
-          }
-        },
-        "type": "Categorical"
-      },
       {
         "name": "777d187306c9112c7522",
         "field": {

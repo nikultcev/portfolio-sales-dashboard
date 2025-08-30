@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "efd685efa8a16d187a5d",
   "position": {
-    "x": 23.3219512195122,
-    "y": 519.74634146341456,
+    "x": 23.333333333333328,
+    "y": 520,
     "z": 5000,
-    "height": 231.55365853658538,
-    "width": 1317.690243902439,
-    "tabOrder": 2000
+    "height": 231.1111111111111,
+    "width": 1320,
+    "tabOrder": 1000
   },
   "visual": {
-    "visualType": "lineClusteredColumnComboChart",
+    "visualType": "lineChart",
     "query": {
       "queryState": {
         "Category": {
@@ -33,26 +33,6 @@
               },
               "queryRef": "Calendar.Date Hierarchy.Year",
               "nativeQueryRef": "Date Hierarchy Year",
-              "active": true
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Calendar"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
-                    }
-                  },
-                  "Level": "Quarter"
-                }
-              },
-              "queryRef": "Calendar.Date Hierarchy.Quarter",
-              "nativeQueryRef": "Date Hierarchy Quarter",
               "active": true
             },
             {
@@ -226,6 +206,153 @@
               }
             }
           }
+        },
+        {
+          "properties": {
+            "backgroundColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backgroundTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "50L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Products"
+                          }
+                        },
+                        "Property": "Product line"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'GTK'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "backgroundColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backgroundTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "50L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Products"
+                          }
+                        },
+                        "Property": "Product line"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'GTX'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "backgroundColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backgroundTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "50L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Products"
+                          }
+                        },
+                        "Property": "Product line"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'MG'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
         }
       ],
       "lineStyles": [
@@ -234,7 +361,7 @@
             "showMarker": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -257,6 +384,50 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Products"
+                          }
+                        },
+                        "Property": "Product line"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'MG'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
           }
         }
       ]
@@ -331,7 +502,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Amount of sales by date and product line'"
+                  "Value": "'Revenue by date and product line'"
                 }
               }
             },
