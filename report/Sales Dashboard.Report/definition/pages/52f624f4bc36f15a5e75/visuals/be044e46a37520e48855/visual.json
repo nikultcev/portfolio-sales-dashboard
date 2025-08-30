@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "affdbf7346063096321c",
+  "name": "be044e46a37520e48855",
   "position": {
-    "x": 550.89711934156376,
-    "y": 170.51577503429357,
-    "z": 4000,
-    "height": 129.29218106995885,
-    "width": 252.962962962963,
-    "tabOrder": 11000
+    "x": 21.948960302457464,
+    "y": 165.26275992438563,
+    "z": 0,
+    "height": 258.22306238185252,
+    "width": 1318.2287334593573,
+    "tabOrder": 11004
   },
   "visual": {
     "visualType": "actionButton",
@@ -26,9 +26,7 @@
           "selector": {
             "id": "default"
           }
-        }
-      ],
-      "outline": [
+        },
         {
           "properties": {
             "show": {
@@ -39,20 +37,6 @@
               }
             }
           }
-        },
-        {
-          "properties": {
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "100D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
         }
       ],
       "shape": [
@@ -62,6 +46,26 @@
               "expr": {
                 "Literal": {
                   "Value": "10L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "outline": [
+        {
+          "properties": {
+            "lineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F5F4F1'"
+                    }
+                  }
                 }
               }
             }
@@ -85,26 +89,21 @@
         },
         {
           "properties": {
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
             "fillColor": {
               "solid": {
                 "color": {
                   "expr": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Measure"
-                        }
-                      },
-                      "Property": "Change of average sale sum, background"
+                    "Literal": {
+                      "Value": "'#F5F4F1'"
                     }
                   }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }
@@ -116,19 +115,6 @@
       ]
     },
     "visualContainerObjects": {
-      "background": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
       "border": [
         {
           "properties": {
@@ -136,26 +122,6 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
-                }
-              }
-            },
-            "radius": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "title": [
-        {
-          "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Amount of sales Color'"
                 }
               }
             }

@@ -2,24 +2,6 @@ table Calendar
 	lineageTag: dac98148-4fc0-463b-89e6-6b62b2ccee07
 	dataCategory: Time
 
-	measure 'Текущий период' =
-			
-			VAR _Title =
-			    IF(
-			        ISFILTERED('Calendar'[Month]),
-			            MIN('Calendar'[Month])&" "&MAX('Calendar'[Year]),
-			            IF(
-			                ISFILTERED('Calendar'[Quarter]),
-			                    MAX('Calendar'[Quarter])&" "&MAX('Calendar'[Year]),
-			                    IF(
-			                        ISFILTERED('Calendar'[Year]),
-			                            MAX('Calendar'[Year]))))
-			RETURN
-			CONVERT(_Title,STRING)
-		lineageTag: d5045fb9-8a3b-4885-95ed-14fbc227e2c1
-
-		annotation PBI_FormatHint = {"isText":true}
-
 	column Date
 		formatString: General Date
 		lineageTag: 07f73c72-8841-4890-8d38-fa73a2fe5058
@@ -81,6 +63,15 @@ table Calendar
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Last 12 months'
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 12ffa587-6a5c-4650-bc92-8adc0c3e269a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Last 12 months]
+
+		annotation SummarizationSetBy = Automatic
+
 	hierarchy 'Date Hierarchy'
 		lineageTag: 46861295-6ad0-4015-aee4-d16fb2f46cbc
 
@@ -125,7 +116,8 @@ table Calendar
 				            9,"September",
 				            10,"October",
 				            11,"Novermber",
-				            12,"December","No month"))
+				            12,"December","No month"),
+				        "Last 12 months",DATEDIFF([Date],DATE(2017,12,31),MONTH)<=12)
 				```
 
 	annotation PBI_Id = 34794dc395544b6ca6bc1c9253446fc3

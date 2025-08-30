@@ -8,7 +8,7 @@ table Measure
 		displayFolder: Display rules
 		lineageTag: 9af84b31-b9e5-4277-9633-46a568014dd7
 
-	measure 'Amount of successful sales for previous period' = ```
+	measure 'Amount of sales for previous period' = ```
 			
 			    IF(
 			        ISFILTERED('Calendar'[Month]),
@@ -184,7 +184,7 @@ table Measure
 			
 			    AVERAGE('Deals'[Sum])
 			```
-		formatString: #,0.00
+		formatString: \$#,0;(\$#,0);\$#,0
 		displayFolder: Main calculations
 		lineageTag: 2aa99835-da1f-4326-b03b-1fcc17482cb4
 
@@ -228,12 +228,12 @@ table Measure
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Change of amount of sales, %' = [Amount of sales]/[Amount of successful sales for previous period]-1
+	measure 'Change of amount of sales, %' = [Amount of sales]/[Amount of sales for previous period]-1
 		formatString: #,0.00%;-#,0.00%;#,0.00%
 		displayFolder: Change for previous period
 		lineageTag: 4bf04b43-65c2-442e-a202-af07b95ae18c
 
-	measure 'Change of amount of sales, abs.' = [Amount of sales]-[Amount of successful sales for previous period]
+	measure 'Change of amount of sales, abs.' = [Amount of sales]-[Amount of sales for previous period]
 		formatString: #,0
 		displayFolder: Change for previous period
 		lineageTag: e73486e5-0c8c-4061-b10e-7caf27be47af
@@ -552,6 +552,22 @@ table Measure
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Main calculations
 		lineageTag: e7345c96-a024-4432-a3ee-f2dcfec87eed
+
+	measure 'Change of sum of sales, reference' = FORMAT([Change of sum of sales, abs.],"$#,0")&" "&FORMAT([Change of sum of sales, %], "Percent")
+		displayFolder: Reference values
+		lineageTag: 428d1d29-6218-470b-9eb0-5f370268c825
+
+	measure 'Change of amount of sales, reference' = FORMAT([Change of amount of sales, abs.],"#,0")&" "&FORMAT([Change of amount of sales, %],"Percent")
+		displayFolder: Reference values
+		lineageTag: 807d3886-2b32-49bc-808c-1643e8dd6d73
+
+	measure 'Change of conversion rate, reference' = FORMAT([Change of conversion rate, abs.],"#,0.00")&" "&FORMAT([Change of conversion rate, %],"Percent")
+		displayFolder: Reference values
+		lineageTag: f6c91177-0fdf-49d8-b318-2a6d32421902
+
+	measure 'Change of average sale sum, reference' = FORMAT([Change of average sale sum, abs.],"$#,0")&" "&FORMAT([Change of average sale sum, %],"Percent")
+		displayFolder: Reference values
+		lineageTag: d090a773-0ac2-43b5-818c-a669d39df5e9
 
 	partition Measure = m
 		mode: import
