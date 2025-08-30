@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "bdd52d70007994a2b1eb",
   "position": {
-    "x": 22.5,
-    "y": 168.75,
-    "z": 5000,
-    "height": 203.75,
-    "width": 547.5,
+    "x": 21.907547169811324,
+    "y": 168.81698113207549,
+    "z": 3000,
+    "height": 582.48301886792456,
+    "width": 355.6754716981132,
     "tabOrder": 1000
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
         "Category": {
@@ -145,7 +145,7 @@
             "enableBackground": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -172,6 +172,25 @@
               "expr": {
                 "Literal": {
                   "Value": "8D"
+                }
+              }
+            },
+            "labelPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "'InsideBase'"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             }
@@ -206,7 +225,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top 10 clients by LTV'"
+                  "Value": "'Top 10 clients by total sales'"
                 }
               }
             }
@@ -319,21 +338,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "7e591fffec77c88672ea",
-        "ordinal": 1,
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Measure"
-              }
-            },
-            "Property": "Sum of sales"
-          }
-        },
-        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

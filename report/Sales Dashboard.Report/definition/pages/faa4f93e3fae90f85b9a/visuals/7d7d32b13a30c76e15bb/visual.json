@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "7d7d32b13a30c76e15bb",
   "position": {
-    "x": 971.25,
-    "y": 168.75,
-    "z": 6000,
-    "height": 203.75,
-    "width": 371.25,
+    "x": 877.590566037736,
+    "y": 168.81698113207549,
+    "z": 4000,
+    "height": 203.61132075471696,
+    "width": 463.9245283018868,
     "tabOrder": 2000
   },
   "visual": {
-    "visualType": "pieChart",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -100,13 +100,6 @@
                   "Value": "0L"
                 }
               }
-            },
-            "percentageLabelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "0L"
-                }
-              }
             }
           }
         }
@@ -125,6 +118,46 @@
               "expr": {
                 "Literal": {
                   "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
